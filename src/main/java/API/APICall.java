@@ -1,6 +1,8 @@
 package API;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -12,15 +14,27 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 
 public class APICall {
-	private static final String ACCESS_KEY = "69c05a59ff13694ce64b20f9186bfdc8" ;
 	private static final String BASE_URL = "http://api.currencylayer.com/";
 	private static final String ENDPOINT = "historical";
 	private static final String CURRENCIES = "EUR,JPY,GBP,CHF,AUD";
+	public String readFile() {
+		String key="";
+		try {
+			@SuppressWarnings("resource")
+			BufferedReader reader = new BufferedReader(new FileReader("ACCESS_KEY"));
+			key=reader.readLine();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return key;
+	}
 	public JSONObject sendLiveRequest(String date) {
 		String str = "";
 		JSONObject jObject = null;
 		try {
-			URL url = new URL(BASE_URL + ENDPOINT + "?access_key=" + ACCESS_KEY+ "&currencies=" + CURRENCIES + "&date="+date);
+			URL url = new URL(BASE_URL + ENDPOINT + "?access_key=" + readFile()+ "&currencies=" + CURRENCIES + "&date="+date);
 			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.connect();
