@@ -1,4 +1,4 @@
-package API;
+package CallToAPI;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -54,5 +54,6 @@ public class APICall {
 		}
 		return jObject;
 	}
+	
 
 }
