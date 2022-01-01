@@ -13,11 +13,6 @@ public class Currency {
 		this.value=0;
 	}
 
-	public String toString() {
-		return "Currency [name=" + name + ", value=" + value + "]";
-	}
-
-	
 	public String getName() {
 		return name;
 	}
