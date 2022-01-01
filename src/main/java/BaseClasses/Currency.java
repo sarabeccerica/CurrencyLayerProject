@@ -19,6 +19,7 @@ public class Currency {
 
 	
 	public String getName() {
+		System.out.println("ciao");
 		return name;
 	}
 	public void setName(String name) {
