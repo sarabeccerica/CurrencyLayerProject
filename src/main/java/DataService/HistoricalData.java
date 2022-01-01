@@ -22,5 +22,25 @@ public class HistoricalData{
 	public HistoricalData(ArrayList<DailyData> historicalData) {
 		this.historicalData = historicalData;
 	}
+	public double CurrencyAverage(String currency) {
+		double average=0;
+		for(DailyData daily: historicalData) {
+			for(int i=0;i<daily.getCurrencies().size();i++) {
+				if(daily.getCurrencies().get(i).getName().equals(currency))
+					average+=daily.getCurrencies().get(i).getValue();
+			}
+		}
+		return average/historicalData.size();
+	}
 	
+	public double CurrencyVariance(String currency) {
+		double variance=0;
+		for(DailyData daily: historicalData) {
+			for(int i=0;i<daily.getCurrencies().size();i++) {
+				if(daily.getCurrencies().get(i).getName().equals(currency))
+					variance+=Math.pow(daily.getCurrencies().get(i).getValue()-CurrencyAverage(currency),2);
+			}
+		}
+		return variance/(historicalData.size()-1);
+	}
 }
