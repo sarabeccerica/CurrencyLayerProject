@@ -43,4 +43,30 @@ public class HistoricalData{
 		}
 		return variance/(historicalData.size()-1);
 	}
+	public Currency DailyLower(Calendar date) {
+		Currency lower = new Currency();
+		String dateString = "" + date.get(Calendar.YEAR)+"-" + date.get(Calendar.MONTH) +"-"+ date.get(Calendar.DATE);
+		for(DailyData daily: historicalData)
+			if(daily.toStringDate().equals(dateString))
+				for(int i=0;i<daily.getCurrencies().size();i++) {
+					if(i==0) {
+						lower.setName(daily.getCurrencies().get(i).getName());
+						lower.setValue(daily.getCurrencies().get(i).getValue());
+					}
+					else if(daily.getCurrencies().get(i).getValue()<lower.getValue()){
+						lower.setName(daily.getCurrencies().get(i).getName());
+						lower.setValue(daily.getCurrencies().get(i).getValue());
+					}
+				}
+		return lower;
+	}
+	
+
+	@SuppressWarnings("unchecked")
+	public JSONObject getCurrencyStats(String currency) {
+		JSONObject stats = new JSONObject();
+		stats.put("Variance",CurrencyVariance(currency));
+		stats.put("Average",CurrencyAverage(currency));
+		return stats;
+	}
 }
