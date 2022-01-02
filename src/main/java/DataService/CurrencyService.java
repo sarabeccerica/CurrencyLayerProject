@@ -7,5 +7,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public interface CurrencyService {
-
+	public abstract JSONArray getAllCurrencies();
+	public abstract JSONObject getCurrencyStats(String currency);
+	public abstract JSONObject getDailyCurrencies(Calendar date);
+	public abstract Vector<Double> getCurrencyQuotes(String name,int days);
+	
 }
