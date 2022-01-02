@@ -10,6 +10,8 @@ import BaseClasses.DailyData;
 
 public class HistoricalData{
 	private ArrayList<DailyData> historicalData;
+	private static final String EURCURRENCIES = "EURUSD,EURJPY,EURGBP,EURCHF,EURAUD";
+	private String[] eurCurrencies=EURCURRENCIES.split(",");
 
 	public ArrayList<DailyData> getHistoricalData() {
 		return historicalData;
@@ -68,5 +70,22 @@ public class HistoricalData{
 		stats.put("Variance",CurrencyVariance(currency));
 		stats.put("Average",CurrencyAverage(currency));
 		return stats;
+	}
+	public void ConvertData() {
+		double eurUsd=1;
+		for(int i=0;i<historicalData.size();i++) {
+			DailyData daily= new DailyData();
+			daily=historicalData.get(i);
+			if(i==0)
+				eurUsd=1/daily.getCurrencies().get(i).getValue();
+			for(int j=0;j<daily.getCurrencies().size();j++) {
+				double curUsd=1;
+				if(j!=0)
+					curUsd=daily.getCurrencies().get(j).getValue();
+				daily.getCurrencies().get(j).setName(eurCurrencies[j]);
+				daily.getCurrencies().get(j).setValue(eurUsd*curUsd);
+			}
+			this.historicalData.set(i, daily);
+		}
 	}
 }
