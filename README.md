@@ -29,3 +29,11 @@ TIPO DI FILTRO | COSA RESTITUISCE
 ------------ | -------------
 GIORNO, MESE, ANNO: |  Vengono restituiti i valori delle valute di interesse relativi al giorno specificato e la valuta con andamento peggiore.
 VALUTA: | Vengono restituite le statische della valuta di interesse.
+
+---
+
+# Software utilizzati
+* [Eclipse](https://www.eclipse.org/downloads/) - Ambiente di sviluppo
+* [Maven](https://maven.apache.org/) - software di gestione di progetti e librerie
+* [Spring Boot](https://spring.io/projects/spring-boot) - framework per sviluppo di applicazioni in Java
+* [Postman](https://www.postman.com/) - ambiente di sviluppo API per effettuare richieste
