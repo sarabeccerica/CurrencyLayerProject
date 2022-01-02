@@ -3,11 +3,11 @@ package DataService;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import BaseClasses.Currency;
 import BaseClasses.DailyData;
-import ProgettoOOP.exceptions.DateNotFound;
 
 public class HistoricalData{
 	private ArrayList<DailyData> historicalData;
@@ -85,6 +85,15 @@ public class HistoricalData{
 			}
 		dailyCurrency.put('"'+"lower: "+DailyLower(date).getName()+'"',DailyLower(date).getValue());
 		return dailyCurrency;
+	}
+
+	@SuppressWarnings("unchecked")
+	public JSONArray getAllCurrencies() {
+		JSONArray allCurrencies = new JSONArray();
+		for(DailyData daily: historicalData) {
+				allCurrencies.add(getDailyCurrencies(daily.getDate()));
+		}
+		return allCurrencies;
 	}
 	public void ConvertData() {
 		double eurUsd=1;
