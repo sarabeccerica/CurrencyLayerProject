@@ -7,6 +7,7 @@ import org.json.simple.JSONObject;
 
 import BaseClasses.Currency;
 import BaseClasses.DailyData;
+import ProgettoOOP.exceptions.DateNotFound;
 
 public class HistoricalData{
 	private ArrayList<DailyData> historicalData;
@@ -70,6 +71,20 @@ public class HistoricalData{
 		stats.put("Variance",CurrencyVariance(currency));
 		stats.put("Average",CurrencyAverage(currency));
 		return stats;
+	}
+
+	@SuppressWarnings("unchecked")
+	public JSONObject getDailyCurrencies(Calendar date) {
+		JSONObject dailyCurrency = new JSONObject();
+		String dateString = "" + date.get(Calendar.YEAR)+"-" + date.get(Calendar.MONTH) +"-"+ date.get(Calendar.DATE);
+		for(DailyData daily: historicalData)
+			if(daily.toStringDate().equals(dateString)) {
+				dailyCurrency.put("date", dateString);
+				for(int j=0;j<daily.getCurrencies().size();j++)
+					dailyCurrency.put('"'+eurCurrencies[j]+'"',daily.getCurrencies().get(j).getValue());
+			}
+		dailyCurrency.put('"'+"lower: "+DailyLower(date).getName()+'"',DailyLower(date).getValue());
+		return dailyCurrency;
 	}
 	public void ConvertData() {
 		double eurUsd=1;
