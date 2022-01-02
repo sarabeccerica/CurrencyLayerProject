@@ -31,4 +31,10 @@ public class Controller {
 		return new ResponseEntity<Object>(data.getDailyCurrencies(date),HttpStatus.OK);
 	}
 	
+	@RequestMapping(value ="/dataAnalysis",method = RequestMethod.GET)
+	public ResponseEntity<Object> requestCurrencyStats (@RequestParam("name") String currency){
+		data.ConvertData();
+		return new ResponseEntity<Object>(data.getCurrencyStats(currency),HttpStatus.OK);
+	}
+	
 }
