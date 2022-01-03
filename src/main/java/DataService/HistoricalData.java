@@ -11,7 +11,7 @@ import BaseClasses.DailyData;
 
 public class HistoricalData{
 	private ArrayList<DailyData> historicalData;
-	private static final String EURCURRENCIES = "EURUSD,EURJPY,EURGBP,EURCHF,EURAUD";
+	private static final String EURCURRENCIES = "EURUSD,EURCHF,EURGBP,EURAUD,EURKYD,EURJPY,EURCNY";
 	private String[] eurCurrencies=EURCURRENCIES.split(",");
 
 	public ArrayList<DailyData> getHistoricalData() {

@@ -22,7 +22,7 @@ public class APICall {
 	private static final int DAYSNUMBER = 5;
 	private static final String BASE_URL = "http://api.currencylayer.com/";
 	private static final String ENDPOINT = "historical";
-	private static final String CURRENCIES = "EUR,JPY,GBP,CHF,AUD";
+	private static final String CURRENCIES = "EUR,CHF,GBP,AUD,KYD,JPY,CNY";
 	private String[] currencies=CURRENCIES.split(",");
 	public String readFile() {
 		String key="";

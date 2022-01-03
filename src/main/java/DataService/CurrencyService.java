@@ -12,5 +12,4 @@ public interface CurrencyService {
 	public abstract JSONArray getCurrencyValues(String currency);
 	public abstract JSONObject getDailyCurrencies(Calendar date);
 	public abstract Vector<Double> getCurrencyQuotes(String name,int days);
-	
 }
