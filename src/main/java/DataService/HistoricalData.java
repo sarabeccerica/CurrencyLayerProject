@@ -104,6 +104,20 @@ public class HistoricalData{
 		dailyCurrency.put('"'+"lower: "+DailyLower(date).getName()+'"',DailyLower(date).getValue());
 		return dailyCurrency;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public JSONArray getCurrencyValues(String currency) {
+		JSONArray allCurrencies = new JSONArray();
+		JSONObject dailyCurrency = new JSONObject();
+		for(DailyData daily: historicalData) {
+			dailyCurrency.put("date", daily.toStringDate());
+			for(int j=0;j<daily.getCurrencies().size();j++)
+				if(daily.getCurrencies().get(j).getName().equals(currency))
+					dailyCurrency.put('"'+"EUR"+currency+'"',daily.getCurrencies().get(j).getValue());
+			allCurrencies.add(dailyCurrency);
+		}
+		return allCurrencies;
+	}
 
 	@SuppressWarnings("unchecked")
 	public JSONArray getAllCurrencies() {
