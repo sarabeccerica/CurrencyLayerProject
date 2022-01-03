@@ -7,6 +7,7 @@ investimento.
 - [Applicazione](#APPLICAZIONE)
   - [Statistiche](#STATISTICHE-bar_chart)
   - [Filtri](#FILTRI-memo)
+  - [Valute](#VALUTE-moneybag)
   - [Rotte](#Rotte-globe_with_meridians)
   - [Test](#Test)
   - [Eccezioni](#eccezioni)
@@ -29,6 +30,19 @@ TIPO DI FILTRO | COSA RESTITUISCE
 ------------ | -------------
 GIORNO, MESE, ANNO: |  Vengono restituiti i valori delle valute di interesse relativi al giorno specificato e la valuta con andamento peggiore.
 VALUTA: | Vengono restituite le statische della valuta di interesse.
+
+
+## VALUTE :moneybag:
+Le valute disponibili di interesse selezionate sono:
+VALUTA | PROVENIENZA
+------------ | -------------
+CHF : | Franco svizzero.
+GBP : | Sterlina inglese.
+AUD : | Dollaro australiano.
+USD : | Dollaro statunitense.
+KYD : | Dollaro delle isole Cayman.
+JPY : | Yen giapponese.
+CNY : | Yuan cinese.
 
 ---
 
