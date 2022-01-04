@@ -11,7 +11,7 @@ import BaseClasses.DailyData;
 
 public class HistoricalData{
 	private ArrayList<DailyData> historicalData;
-	private static final String EURCURRENCIES = "EURUSD,EURJPY,EURGBP,EURCHF,EURAUD";
+	private static final String EURCURRENCIES = "EURUSD,EURCHF,EURGBP,EURAUD,EURKYD,EURJPY,EURCNY";
 	private String[] eurCurrencies=EURCURRENCIES.split(",");
 
 	public ArrayList<DailyData> getHistoricalData() {
@@ -24,6 +24,24 @@ public class HistoricalData{
 
 	public HistoricalData(ArrayList<DailyData> historicalData) {
 		this.historicalData = historicalData;
+	}
+
+	public void ConvertData() {
+		double eurUsd=1;
+		for(int i=0;i<historicalData.size();i++) {
+			DailyData daily= new DailyData();
+			daily=historicalData.get(i);
+			if(i==0)
+				eurUsd=1/daily.getCurrencies().get(i).getValue();
+			for(int j=0;j<daily.getCurrencies().size();j++) {
+				double curUsd=1;
+				if(j!=0)
+					curUsd=daily.getCurrencies().get(j).getValue();
+				daily.getCurrencies().get(j).setName(eurCurrencies[j]);
+				daily.getCurrencies().get(j).setValue(eurUsd*curUsd);
+			}
+			this.historicalData.set(i, daily);
+		}
 	}
 	public double CurrencyAverage(String currency) {
 		double average=0;
@@ -86,6 +104,20 @@ public class HistoricalData{
 		dailyCurrency.put('"'+"lower: "+DailyLower(date).getName()+'"',DailyLower(date).getValue());
 		return dailyCurrency;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public JSONArray getCurrencyValues(String currency) {
+		JSONArray allCurrencies = new JSONArray();
+		JSONObject dailyCurrency = new JSONObject();
+		for(DailyData daily: historicalData) {
+			dailyCurrency.put("date", daily.toStringDate());
+			for(int j=0;j<daily.getCurrencies().size();j++)
+				if(daily.getCurrencies().get(j).getName().equals(currency))
+					dailyCurrency.put('"'+"EUR"+currency+'"',daily.getCurrencies().get(j).getValue());
+			allCurrencies.add(dailyCurrency);
+		}
+		return allCurrencies;
+	}
 
 	@SuppressWarnings("unchecked")
 	public JSONArray getAllCurrencies() {
@@ -94,22 +126,5 @@ public class HistoricalData{
 				allCurrencies.add(getDailyCurrencies(daily.getDate()));
 		}
 		return allCurrencies;
-	}
-	public void ConvertData() {
-		double eurUsd=1;
-		for(int i=0;i<historicalData.size();i++) {
-			DailyData daily= new DailyData();
-			daily=historicalData.get(i);
-			if(i==0)
-				eurUsd=1/daily.getCurrencies().get(i).getValue();
-			for(int j=0;j<daily.getCurrencies().size();j++) {
-				double curUsd=1;
-				if(j!=0)
-					curUsd=daily.getCurrencies().get(j).getValue();
-				daily.getCurrencies().get(j).setName(eurCurrencies[j]);
-				daily.getCurrencies().get(j).setValue(eurUsd*curUsd);
-			}
-			this.historicalData.set(i, daily);
-		}
 	}
 }

@@ -1,0 +1,90 @@
+[
+	{
+	    "success":true,
+	    "terms":"https:\/\/currencylayer.com\/terms",
+	    "privacy":"https:\/\/currencylayer.com\/privacy",
+	    "historical":true,"date":"2022-01-03",
+	    "timestamp":1641198855,
+	    "source":"USD",
+	    "quotes":{
+		"USDEUR":0.882029,
+		"USDCHF":0.913935,
+		"USDGBP":0.74005,
+		"USDAUD":1.377135,
+		"USDKYD":0.830457,
+		"USDJPY":115.284985,
+		"USDCNY":6.3559}
+	},
+	{
+	    "success": true,
+	    "terms": "https://currencylayer.com/terms",
+	    "privacy": "https://currencylayer.com/privacy",
+	    "historical": true,
+	    "date": "2022-01-02",
+	    "timestamp": 1641167999,
+	    "source": "USD",
+	    "quotes": {
+	        "USDEUR": 0.879285,
+	        "USDCHF": 0.91208,
+	        "USDGBP": 0.73955,
+	        "USDAUD": 1.376179,
+	        "USDKYD": 0.833481,
+	        "USDJPY": 115.140497,
+	        "USDCNY": 6.355903
+	    }
+	},
+	{
+	    "success": true,
+	    "terms": "https://currencylayer.com/terms",
+	    "privacy": "https://currencylayer.com/privacy",
+	    "historical": true,
+	    "date": "2022-01-01",
+	    "timestamp": 1641081599,
+	    "source": "USD",
+	    "quotes": {
+	        "USDEUR": 0.879395,
+	        "USDCHF": 0.911704,
+	        "USDGBP": 0.739016,
+	        "USDAUD": 1.3758,
+	        "USDKYD": 0.833481,
+	        "USDJPY": 115.10804,
+	        "USDCNY": 6.355904
+	    }
+	},
+	{
+	    "success": true,
+	    "terms": "https://currencylayer.com/terms",
+	    "privacy": "https://currencylayer.com/privacy",
+	    "historical": true,
+	    "date": "2021-12-31",
+	    "timestamp": 1640995199,
+	    "source": "USD",
+	    "quotes": {
+	        "USDEUR": 0.879395,
+	        "USDCHF": 0.911704,
+	        "USDGBP": 0.739649,
+	        "USDAUD": 1.3758,
+	        "USDKYD": 0.833481,
+	        "USDJPY": 115.10804,
+	        "USDCNY": 6.355904
+	    }
+	},
+	{
+	    "success": true,
+	    "terms": "https://currencylayer.com/terms",
+	    "privacy": "https://currencylayer.com/privacy",
+	    "historical": true,
+	    "date": "2021-12-30",
+	    "timestamp": 1640908799,
+	    "source": "USD",
+	    "quotes": {
+	        "USDEUR": 0.883099,
+	        "USDCHF": 0.914015,
+	        "USDGBP": 0.740865,
+	        "USDAUD": 1.379095,
+	        "USDKYD": 0.833525,
+	        "USDJPY": 115.066984,
+	        "USDCNY": 6.373105
+	    }
+	}
+]
