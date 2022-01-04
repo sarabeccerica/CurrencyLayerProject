@@ -132,11 +132,11 @@ public class Investment extends Currency{
 		historicalEarnings.add(quotes*this.amount);
 		
 	}
-	public int DaysNumber(Calendar date) {
+	public int DaysNumber() {
 		Calendar today = Calendar.getInstance();
 		Calendar difference = Calendar.getInstance();
 		difference.clear();
-		difference.setTimeInMillis(today.getTimeInMillis()-date.getTimeInMillis());
+		difference.setTimeInMillis(today.getTimeInMillis()-this.investmentDate.getTimeInMillis());
 		if(difference.get(Calendar.DAY_OF_YEAR)>5)
 			return 5;
 		return difference.get(Calendar.DAY_OF_YEAR);
