@@ -28,7 +28,7 @@ public class APICall {
 		String key="";
 		try {
 			@SuppressWarnings("resource")
-			BufferedReader reader = new BufferedReader(new FileReader("ACCESS_KEY"));
+			BufferedReader reader = new BufferedReader(new FileReader("src/main/java/CallToAPI/ACCESS_KEY.txt"));
 			key=reader.readLine();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
