@@ -25,7 +25,21 @@ public class Investment extends Currency{
 		this.investorName = investorName;
 		this.amount = amount;
 		this.investmentDate=date;
-	}//inserisci altri costruttori
+	}
+	public Investment(String name, String investorName, double amount,Calendar date) {
+		super(name,0);
+		this.investorName = investorName;
+		this.amount = amount;
+		this.investmentDate=date;
+	}
+	
+	public Investment() {
+		super();
+		this.amount=0;
+		this.investmentDate=null;
+		this.investorName=null;
+	}
+	
 	public String getInvestorName() {
 		return investorName;
 	}
@@ -50,7 +64,37 @@ public class Investment extends Currency{
 	public void setHistoricalEarnings(Vector<Double> historicalEarnings) {
 		this.historicalEarnings = historicalEarnings;
 	}
-	
+	@SuppressWarnings("unchecked")
+	public boolean SaveInvestment() {
+		JSONParser jParser = new JSONParser();
+		JSONArray list = new JSONArray();
+		try(FileReader reader = new FileReader(file))
+		{
+			if(file.length()!=0) 
+				list = (JSONArray) jParser.parse(reader);
+			if(!file.exists()) {
+				file.createNewFile();
+			}
+			FileWriter writer = new FileWriter(file);
+			JSONObject jObject = new JSONObject();
+			String dateString = "" + investmentDate.get(Calendar.YEAR)+"-" + investmentDate.get(Calendar.MONTH) +"-"+ investmentDate.get(Calendar.DATE);
+			jObject.put("name", investorName);
+			jObject.put("date", dateString);
+			jObject.put("currency", super.getName());
+			jObject.put("amount", amount);
+			list.add(jObject);
+			writer.write(list.toJSONString());
+			writer.close();
+			return true;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	public void ReadInvestment(String name) {
 		JSONParser jParser = new JSONParser();
