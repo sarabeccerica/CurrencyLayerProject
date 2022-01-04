@@ -2,6 +2,7 @@ package DataService;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Vector;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -126,5 +127,14 @@ public class HistoricalData{
 				allCurrencies.add(getDailyCurrencies(daily.getDate()));
 		}
 		return allCurrencies;
+	}
+
+	public Vector<Double> CurrencyQuotes(String name,int days){
+		Vector<Double> currency= new Vector<Double>();
+		for(int i=0;i<days;i++)
+			for(int j=0;j<historicalData.get(i).getCurrencies().size();j++)
+				if(historicalData.get(i).getCurrencies().get(j).getName().equals(name))
+					currency.add(historicalData.get(i).getCurrencies().get(j).getValue());
+		return currency;
 	}
 }
