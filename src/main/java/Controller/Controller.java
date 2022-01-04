@@ -1,6 +1,7 @@
 package Controller;
 
 import java.util.Calendar;
+import java.util.Vector;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import CallToAPI.ReadFile;
 import DataService.HistoricalData;
+import BaseClasses.Investment;
 
 @RestController
 public class Controller {
@@ -44,6 +46,27 @@ public class Controller {
 	public ResponseEntity<Object> requestCurrencyQuotes(@RequestParam("name") String currency){
 		data.ConvertData();
 		return new ResponseEntity<Object>(data.getCurrencyValues(currency),HttpStatus.OK);
+	}
+	
+	@RequestMapping(value ="/investment",method = RequestMethod.GET) 
+	public String newInvestment(@RequestParam("name") String name,
+								@RequestParam("currency") String currency,
+								@RequestParam("amount") double amount) {
+		data.ConvertData();
+		Calendar date = Calendar.getInstance();
+		Investment inv = new Investment(currency, name, amount,date);
+		if(inv.SaveInvestment())
+			return "investimento fatto";
+		return "non fatto";
+	}
+	
+	@RequestMapping(value ="/historicalEarning",method = RequestMethod.GET) 
+	public Vector<Double> historicalEarning(@RequestParam("investor") String name){
+		data.ConvertData();
+		Investment investment = new Investment();
+		investment.ReadInvestment(name);
+		investment.historicalEarnings(data.getCurrencyQuotes(investment.getName(),));
+		return investment.getHistoricalEarnings();
 	}
 	
 }
