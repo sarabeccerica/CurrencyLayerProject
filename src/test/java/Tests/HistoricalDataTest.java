@@ -3,6 +3,8 @@ package Tests;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import BaseClasses.Currency;
@@ -15,7 +17,9 @@ public class HistoricalDataTest extends TestCase{
 	private HistoricalData allData;
 	Calendar date1= Calendar.getInstance();
 	Calendar date2= Calendar.getInstance();
-	public HistoricalDataTest(String name){ super(name); }
+	
+	//public HistoricalDataTest(String name){ super(name); }
+	@Before
 	public void setUp(){
 		Currency eur= new Currency("eur",1);
 		Currency usd= new Currency("usd",1.4);
@@ -36,8 +40,10 @@ public class HistoricalDataTest extends TestCase{
 		data.add(day2);
 		allData= new HistoricalData(data);
 	}
+	@After
+	public void tearDown(){}
 	@Test
-	public void test(){// throws DateNotFound{
+	public void test() {//throws DateNotFound{
 		Currency right1= new Currency("eur",1);
 		Currency right2= new Currency("jpy",1.2);
 		assertEquals(allData.DailyLower(date1),right1);
