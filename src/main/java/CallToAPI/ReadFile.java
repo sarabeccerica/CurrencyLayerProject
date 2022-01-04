@@ -16,7 +16,7 @@ import BaseClasses.Currency;
 
 public class ReadFile {
 	private static final String CURRENCIES = "EUR,JPY,GBP,CHF,AUD";
-	private final String fileName = "src/main/java/CallToAPI/data.json";
+	private final String fileName = "src/main/java/DataService/data.json";
 	private String[] currencies=CURRENCIES.split(",");
 	public ArrayList<DailyData> readFile() {
 		JSONParser jParser = new JSONParser();
