@@ -65,7 +65,7 @@ public class Controller {
 		data.ConvertData();
 		Investment investment = new Investment();
 		investment.ReadInvestment(name);
-		investment.historicalEarnings(data.getCurrencyQuotes(investment.getName(),));
+		investment.historicalEarnings(data.CurrencyQuotes(investment.getName(),investment.DaysNumber()));
 		return investment.getHistoricalEarnings();
 	}
 	
