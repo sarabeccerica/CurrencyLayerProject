@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import CallToAPI.ReadFile;
 import DataService.HistoricalData;
+import Exceptions.CurrencyNotFoundException;
+import Exceptions.DateNotFoundException;
 import BaseClasses.Investment;
 
 @RestController
@@ -29,7 +31,7 @@ public class Controller {
 	@RequestMapping(value ="/dailyQuotes",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestDailyCurrencies(@RequestParam("year") int year,
 														 @RequestParam("month") int month,
-														 @RequestParam("day") int day){
+														 @RequestParam("day") int day) throws DateNotFoundException{
 		data.ConvertData();
 		Calendar date = Calendar.getInstance();
 		date.set(year, month, day);
@@ -37,13 +39,13 @@ public class Controller {
 	}
 	
 	@RequestMapping(value ="/dataAnalysis",method = RequestMethod.GET)
-	public ResponseEntity<Object> requestCurrencyStats (@RequestParam("name") String currency){
+	public ResponseEntity<Object> requestCurrencyStats (@RequestParam("name") String currency) throws CurrencyNotFoundException{
 		data.ConvertData();
 		return new ResponseEntity<Object>(data.getCurrencyStats(currency),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/currencyQuotes",method = RequestMethod.GET)
-	public ResponseEntity<Object> requestCurrencyQuotes(@RequestParam("name") String currency){
+	public ResponseEntity<Object> requestCurrencyQuotes(@RequestParam("name") String currency) throws CurrencyNotFoundException{
 		data.ConvertData();
 		return new ResponseEntity<Object>(data.getCurrencyValues(currency),HttpStatus.OK);
 	}
@@ -61,11 +63,11 @@ public class Controller {
 	}
 	
 	@RequestMapping(value ="/historicalEarning",method = RequestMethod.GET) 
-	public Vector<Double> historicalEarning(@RequestParam("investor") String name){
+	public Vector<Double> historicalEarning(@RequestParam("investor") String name) throws CurrencyNotFoundException{
 		data.ConvertData();
 		Investment investment = new Investment();
 		investment.ReadInvestment(name);
-		investment.historicalEarnings(data.CurrencyQuotes(investment.getName(),investment.DaysNumber()));
+		investment.historicalEarnings(data.getCurrencyQuotes(investment.getName(),investment.DaysNumber()));
 		return investment.getHistoricalEarnings();
 	}
 	
