@@ -46,7 +46,6 @@ public class Controller {
 	 */
 	@RequestMapping(value ="/quotes",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestAllCurrencies() {
-		data.ConvertData();
 		return new ResponseEntity<Object>(data.getAllCurrencies(),HttpStatus.OK);
 	}
 	/**
@@ -59,7 +58,6 @@ public class Controller {
 	public ResponseEntity<Object> requestDailyCurrencies(@RequestParam("year") int year,
 														 @RequestParam("month") int month,
 														 @RequestParam("day") int day) throws DateNotFoundException{
-		data.ConvertData();
 		Calendar date = Calendar.getInstance();
 		date.set(year, month-1, day);
 		return new ResponseEntity<Object>(data.getDailyCurrencies(date),HttpStatus.OK);
@@ -71,7 +69,6 @@ public class Controller {
 	 */
 	@RequestMapping(value ="/quotes/analysis",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestCurrencyStats (@RequestParam("name") String currency) throws CurrencyNotFoundException{
-		data.ConvertData();
 		return new ResponseEntity<Object>(data.getCurrencyStats(currency),HttpStatus.OK);
 	}
 	/**
@@ -81,7 +78,6 @@ public class Controller {
 	 */
 	@RequestMapping(value = "/quotes/currency",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestCurrencyQuotes(@RequestParam("name") String currency) throws CurrencyNotFoundException{
-		data.ConvertData();
 		return new ResponseEntity<Object>(data.getCurrencyValues(currency),HttpStatus.OK);
 	}
 	/**
@@ -97,7 +93,6 @@ public class Controller {
 	public String newInvestment(@RequestParam("name") String name,
 								@RequestParam("currency") String currency,
 								@RequestParam("amount") double amount) {
-		data.ConvertData();
 		Calendar date = Calendar.getInstance();
 		Investment inv = new Investment(currency, name, amount,date);
 		if(inv.SaveInvestment())
@@ -112,7 +107,6 @@ public class Controller {
 	 */
 	@RequestMapping(value ="/investment/earning",method = RequestMethod.GET) 
 	public Vector<Double> historicalEarning(@RequestParam("investor") String name) throws CurrencyNotFoundException{
-		data.ConvertData();
 		Investment investment = new Investment();
 		investment.ReadInvestment(name);
 		investment.historicalEarnings(data.getCurrencyQuotes(investment.getName(),investment.DaysNumber()));

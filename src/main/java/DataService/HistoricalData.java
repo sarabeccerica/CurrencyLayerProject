@@ -127,7 +127,8 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	public Currency DailyLower(Calendar date) throws DateNotFoundException{
 		boolean flag = true;
 		Currency lower = new Currency();
-		String dateString = "" + date.get(Calendar.YEAR)+"-" + date.get(Calendar.MONTH) +"-"+ date.get(Calendar.DATE);
+		int month = date.get(Calendar.MONTH)+1;
+		String dateString = "" + date.get(Calendar.YEAR)+"-" + month +"-"+ date.get(Calendar.DATE);
 		for(DailyData daily: historicalData)
 			if(daily.toStringDate().equals(dateString)) {
 				flag = false;
@@ -169,7 +170,8 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	public JSONObject getDailyCurrencies(Calendar date) throws DateNotFoundException {
 		boolean flag = true;
 		JSONObject dailyCurrency = new JSONObject();
-		String dateString = "" + date.get(Calendar.YEAR)+"-" + date.get(Calendar.MONTH) +"-"+ date.get(Calendar.DATE);
+		int month = date.get(Calendar.MONTH)+1;
+		String dateString = "" + date.get(Calendar.YEAR)+"-" + month +"-"+ date.get(Calendar.DATE);
 		for(DailyData daily: historicalData)
 			if(daily.toStringDate().equals(dateString)) {
 				flag = false;
