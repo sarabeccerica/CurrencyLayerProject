@@ -12,23 +12,53 @@ import BaseClasses.DailyData;
 import Exceptions.CurrencyNotFoundException;
 import Exceptions.DateNotFoundException;
 
-public class HistoricalData implements CurrencyService,DataAnalysis{
-	private ArrayList<DailyData> historicalData;
-	private static final String EURCURRENCIES = "EURUSD,EURCHF,EURGBP,EURAUD,EURKYD,EURJPY,EURCNY";
-	private String[] eurCurrencies=EURCURRENCIES.split(",");
+/**
+ * Questa classe descrive il comportamento di una struttura dati contenente 
+ * tutte le informazioni relative alle valute in un lasso di tempo
+ */
 
+public class HistoricalData implements CurrencyService,DataAnalysis{
+	/**
+	 * @param historicalData è un ArrayList che contiene tutti i dati storici
+	 * relativi alle valute
+	 */
+	private ArrayList<DailyData> historicalData;
+	/**
+	 * @param EURCURRENCIES è una stringa che contiene tutte le valute di interesse
+	 */
+	private static final String EURCURRENCIES = "EURUSD,EURCHF,EURGBP,EURAUD,EURKYD,EURJPY,EURCNY";
+	/**
+	 * @ param eurCurrencies è un vettore di stringhe, è la lista delle valute di interesse
+	 */
+	private String[] eurCurrencies=EURCURRENCIES.split(",");
+	/**
+	 * Metodo get per l'utilizzo dell'ArrayList historical data all'esterno della classe
+	 * @return restituisce tutte le informazioni sulle valute in un ArrayList con elementi
+	 * di classe DailyData
+	 */
 	public ArrayList<DailyData> getHistoricalData() {
 		return historicalData;
 	}
-
+	/**
+	 * Metodo set per la modifica dell'ArrayList historicalData 
+	 * @param historicalData ArrayList con elementi di classe DailyData
+	 *  con i nuovi dati sulle monete
+	 */
 	public void setHistoricalData(ArrayList<DailyData> historicalData) {
 		this.historicalData = historicalData;
 	}
-
+	/**
+	 * Costruttore della classe HistoricalData
+	 * @param historicalData è la struttura dati contenente tutte le informazioni sulle valute
+	 */
 	public HistoricalData(ArrayList<DailyData> historicalData) {
 		this.historicalData = historicalData;
 	}
-
+	/**
+	 * Metodo per la conversione dei valori delle monete, l'API Currencylayer permette
+	 * di ottenere i tassi di cambio in base al dollaro, con questo metodo vengono convertiti
+	 * sulla base dell'euro
+	 */
 	public void ConvertData() {
 		double eurUsd=1;
 		for(int i=0;i<historicalData.size();i++) {
@@ -46,6 +76,12 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 			this.historicalData.set(i, daily);
 		}
 	}
+	/**
+	 * Metodo per il calcolo del valore medio di una moneta
+	 * @param currency è il nome della moneta di cui si richiede il calcolo
+	 * della media
+	 * @return restituisce il valore della media
+	 */
 	public double CurrencyAverage(String currency) throws CurrencyNotFoundException{
 		boolean flag = true;
 		double average=0;
@@ -61,7 +97,12 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 			throw new CurrencyNotFoundException("currency not found");
 		return average/historicalData.size();
 	}
-	
+	/**
+	 * Metodo per il calcolo della varianza di una moneta
+	 * @param currency è il nome della moneta di cui si richiede il calcolo
+	 * della varianza
+	 * @return restituisce il valore della varianza
+	 */
 	public double CurrencyVariance(String currency) throws CurrencyNotFoundException{
 		boolean flag = true;
 		double variance=0;
@@ -77,6 +118,12 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 			throw new CurrencyNotFoundException("currency not found");
 		return variance/(historicalData.size()-1);
 	}
+	/**
+	 * Metodo per il calcolo della moneta con il valore più basso in un dato giorno
+	 * @param date è la data di cui si vuole trovare la moneta con valore più basso
+	 * @return restituisce un oggetto di classe Currency che nel giorno richiesto ha
+	 * registrato il valore più basso
+	 */
 	public Currency DailyLower(Calendar date) throws DateNotFoundException{
 		boolean flag = true;
 		Currency lower = new Currency();
@@ -100,7 +147,12 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 		return lower;
 	}
 	
-
+	/**
+	 * Metodo get per avere un resoconto sulle statistiche di una valuta
+	 * @param currency è una stringa contenente il nome della valuta di cui si
+	 * richiedono le statistiche
+	 * @return restituisce le informazioni della valuta all' interno di un JSONObject
+	 */
 	@SuppressWarnings("unchecked")
 	public JSONObject getCurrencyStats(String currency) throws CurrencyNotFoundException {
 		JSONObject stats = new JSONObject();
@@ -108,7 +160,11 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 		stats.put("Average",CurrencyAverage(currency));
 		return stats;
 	}
-
+	/**
+	 * Metodo get per avere i dati delle valute relativi ad un giorno specifico
+	 * @param date è la data di cui si richiedono i dati
+	 * @return restituisce un JSONObject contenente i dati sulle valute relativi al giorno indicato
+	 */
 	@SuppressWarnings("unchecked")
 	public JSONObject getDailyCurrencies(Calendar date) throws DateNotFoundException {
 		boolean flag = true;
@@ -126,7 +182,13 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 			throw new DateNotFoundException("date not found");
 		return dailyCurrency;
 	}
-	
+	/**
+	 * Metodo get che permette di ricevere le quote di una valuta nell'arco dei 5 giorni
+	 * @param currency  è una stringa contenente il nome della valuta di cui si
+	 * richiedono le statistiche
+	 * @return restituisce le informazioni della valuta all' interno di un JSONObject	
+	 * @throws CurrencyNotFoundException
+	 */
 	@SuppressWarnings("unchecked")
 	public JSONArray getCurrencyValues(String currency) throws CurrencyNotFoundException{
 		boolean flag = true;
@@ -145,7 +207,10 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 			throw new CurrencyNotFoundException("currency not found");
 		return allCurrencies;
 	}
-
+	/**
+	 * Metodo get per l'utilizzo dell'ArrayList historicalData al di fuori della classe
+	 * @return restituisce i dati storici in formato JSONArray
+	 */
 	@SuppressWarnings("unchecked")
 	public JSONArray getAllCurrencies() {
 		JSONArray allCurrencies = new JSONArray();
@@ -158,7 +223,12 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 		}
 		return allCurrencies;
 	}
-
+	/**
+	 * Metodo get che permette di ricevere le quote di una valuta in un lasso di tempo specificato
+	 * @param name è il nome della valuta di cui si richiedono i valori
+	 * @param days è il numero di giorni di cui si richiedono i dati, partendo dal giorno corrente
+	 * @return restituisce il vettore contenente i valori della valuta richiesti
+	 */
 	public Vector<Double> getCurrencyQuotes(String name,int days) throws CurrencyNotFoundException{
 		boolean flag = true;
 		Vector<Double> currency= new Vector<Double>();
