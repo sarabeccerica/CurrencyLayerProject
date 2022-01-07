@@ -28,7 +28,7 @@ public class Controller {
 		return new ResponseEntity<Object>(data.getAllCurrencies(),HttpStatus.OK);
 	}
 
-	@RequestMapping(value ="/dailyQuotes",method = RequestMethod.GET)
+	@RequestMapping(value ="/quotes/daily",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestDailyCurrencies(@RequestParam("year") int year,
 														 @RequestParam("month") int month,
 														 @RequestParam("day") int day) throws DateNotFoundException{
@@ -38,13 +38,13 @@ public class Controller {
 		return new ResponseEntity<Object>(data.getDailyCurrencies(date),HttpStatus.OK);
 	}
 	
-	@RequestMapping(value ="/dataAnalysis",method = RequestMethod.GET)
+	@RequestMapping(value ="/quotes/analysis",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestCurrencyStats (@RequestParam("name") String currency) throws CurrencyNotFoundException{
 		data.ConvertData();
 		return new ResponseEntity<Object>(data.getCurrencyStats(currency),HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/currencyQuotes",method = RequestMethod.GET)
+	@RequestMapping(value = "/quotes/currency",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestCurrencyQuotes(@RequestParam("name") String currency) throws CurrencyNotFoundException{
 		data.ConvertData();
 		return new ResponseEntity<Object>(data.getCurrencyValues(currency),HttpStatus.OK);
@@ -62,7 +62,7 @@ public class Controller {
 		return "non fatto";
 	}
 	
-	@RequestMapping(value ="/historicalEarning",method = RequestMethod.GET) 
+	@RequestMapping(value ="/investment/earning",method = RequestMethod.GET) 
 	public Vector<Double> historicalEarning(@RequestParam("investor") String name) throws CurrencyNotFoundException{
 		data.ConvertData();
 		Investment investment = new Investment();
