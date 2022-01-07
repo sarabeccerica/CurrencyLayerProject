@@ -47,14 +47,14 @@ CNY : | Yuan cinese.
 
 ## ROTTE 
 Sono disponibili 6 rotte:
-ROTTA | PROVENIENZA
------------- | -------------
-/quotes : | Restituisce tutti i dati sull'andamento delle valute negli ultimi 5 giorni.
-/dailyQuotes : | Sterlina inglese.
-/dataAnalysis : | Dollaro australiano.
-/currencyQuotes : | Dollaro statunitense.
-/investment : | Dollaro delle isole Cayman.
-/historicalEarning : | Yen giapponese.
+ROTTA | PARAMETRI | RITORNO
+------------ | ------------- | -------------
+/quotes : | Non prende nessun parametro. : | Restituisce un JSONArray con tutti i dati sull'andamento delle valute negli ultimi 5 giorni.
+/quotes/daily : | Prende in input tre interi che corrispondono a una data: YEAR, MONTH, DAY. : | Restituisce un JSONObject con i dati sulle valute relativi ad uno specifico giorno e la valuta con andamento peggiore.
+/quotes/analysis : | Prende in input una stringa che corrisponde alla VALUTA di cui si desidera avere le analisi. : | Restituisce un JSONObject con la media e la varianza di una valuta.
+/quotes/currency : | Prende in input una stringa che corrisponde alla VALUTA di cui si desidera avere l'andamento. : | Restituisce un JSONArray con i dati sull'andamento di una specifica valuta negli ultimi cinque giorni.
+/investment : | Prende in input una stringa che corrisponde al nome dell'investitore, una stringa che correisponde alla VALUTA su cui si vuole investire e un intero che corrisponde a quanto si vuole investire. : |  Restituisce una stringa che riferisce se l'investimento è stato eseguito o meno.
+/investment/earning : | Prende in input una stringa che corrisponde al nome dell'investitore. : | Restituisce un vettore con i guadagni di ogni giornata.
 
 ---
 
