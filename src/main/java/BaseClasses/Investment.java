@@ -18,7 +18,7 @@ public class Investment extends Currency{
 	private String investorName;
 	private double amount;
 	private Vector<Double> historicalEarnings= new Vector<Double>();
-	private final File file= new File(" src/main/java/DataService/Investment.json");
+	private final File file= new File("CurrencyLayerProject/src/main/java/BaseClasses/Investments.json");
 	
 	public Investment(String name, double value, String investorName, double amount,Calendar date) {
 		super(name, value);

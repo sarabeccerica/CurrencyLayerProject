@@ -34,7 +34,7 @@ public class Controller {
 														 @RequestParam("day") int day) throws DateNotFoundException{
 		data.ConvertData();
 		Calendar date = Calendar.getInstance();
-		date.set(year, month, day);
+		date.set(year, month-1, day);
 		return new ResponseEntity<Object>(data.getDailyCurrencies(date),HttpStatus.OK);
 	}
 	
