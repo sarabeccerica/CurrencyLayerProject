@@ -15,9 +15,25 @@ import BaseClasses.DailyData;
 import BaseClasses.Currency;
 
 public class ReadFile {
+	/**
+	 * @param CURRENCIES è una stringa che contiene la lista delle valute di interesse
+	 * per il programma 
+	 */
 	private static final String CURRENCIES = "EUR,JPY,GBP,CHF,AUD";
+	/**
+	 * @param fileName contiene il percorso del file contente i dati sulle valute
+	 */
 	private final String fileName = "src/main/java/DataService/data.json";
+	/**
+	 * @param currencies è un vettore di stringhe ottenuto eseguendo la funzione
+	 * split sulla stringa delle valute
+	 */
 	private String[] currencies=CURRENCIES.split(",");
+	/**
+	 * Questa funzione effettua la lettura del file in formato json convertendolo
+	 * in una struttura ArrayList contenente tutti i dati sulle valute
+	 * @return restituisce un ArrayList che contiene tutti i dati di interesse
+	 */
 	public ArrayList<DailyData> readFile() {
 		JSONParser jParser = new JSONParser();
 		JSONArray list = null;
@@ -33,6 +49,12 @@ public class ReadFile {
 		}
 		return convertJSONArray(list);
 	}
+	 /**
+	  * Questa funzione converte una struttura dati JSONArray contenente i dati
+	  * in un ArrayList
+	  * @param jsonArray è il parametro che contiene i dati in formato json
+	  * @return restituisce un ArrayList con i dati di interesse
+	  */
 	public ArrayList<DailyData> convertJSONArray(JSONArray jsonArray) {
 		ArrayList<DailyData> allData = new ArrayList<>();
 		for (int i=0;i<jsonArray.size();i++) {
