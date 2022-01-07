@@ -18,12 +18,40 @@ import org.json.simple.parser.ParseException;
 import BaseClasses.Currency;
 import BaseClasses.DailyData;
 
+/**
+ * Questa classe gestisce la chiamata all'API Currencylayer utilizzando JSONArray
+ * Come struttura dati di ritorno per i dati sulle monete
+ */
+
 public class APICall {
+	/**
+	 * @param DAYSNUMBER  contiene il numero di giorni di cui si vogliono 
+	 * ottenere e analizzare i dati
+	 */
 	private static final int DAYSNUMBER = 5;
+	/**
+	 * @param BASE_URL contiene l'URL necessario per la chiamata all'API
+	 */
 	private static final String BASE_URL = "http://api.currencylayer.com/";
+	/**
+	 * @param ENDPOINT contiene la parola chiave che Currencylayer identifica
+	 * univocamente per accedere ai dati storici
+	 */
 	private static final String ENDPOINT = "historical";
+	/**
+	 * @param CURRENCIES è una stringa che contiene la lista delle valute di interesse
+	 * per il programma 
+	 */
 	private static final String CURRENCIES = "EUR,CHF,GBP,AUD,KYD,JPY,CNY";
+	/**
+	 * @param currencies è un vettore di stringhe ottenuto eseguendo la funzione
+	 * split sulla stringa delle valute
+	 */
 	private String[] currencies=CURRENCIES.split(",");
+	/**
+	 * Funzione per la lettura della key dell'API da file
+	 * @return restituisce una stringa con il valore della chiave
+	 */
 	public String readFile() {
 		String key="";
 		try {
@@ -37,6 +65,11 @@ public class APICall {
 		}
 		return key;
 	}
+	/**
+	  * Questa funzione effettua la chiamata all'API relativa al parametro in input
+	  * @param date che è una stringa contenente la data in formato yyyy-mm-dd
+	  * @return restituisce un JSONObject che contiene le valute di quel giorno
+	  */
 	public JSONObject sendLiveRequest(String date) {
 		String str = "";
 		JSONObject jObject = null;
@@ -61,6 +94,11 @@ public class APICall {
 		}
 		return jObject;
 	}
+	/**
+	 * Questa funzione raccoglie i dati restituiti dalla funzione sendLiveRequest 
+	 * relativi ai giorni di interesse
+	 * @return restituisce un ArrayList contenete tutti i dati richiesti all'API
+	 */
 	public ArrayList<DailyData> sendRequest() {
 		ArrayList<DailyData> allData = new ArrayList<>();
 		try {
