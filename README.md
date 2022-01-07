@@ -44,6 +44,18 @@ KYD : | Dollaro delle isole Cayman.
 JPY : | Yen giapponese.
 CNY : | Yuan cinese.
 
+
+## ROTTE 
+Sono disponibili 6 rotte:
+ROTTA | PROVENIENZA
+------------ | -------------
+/quotes : | Restituisce tutti i dati sull'andamento delle valute negli ultimi 5 giorni.
+/dailyQuotes : | Sterlina inglese.
+/dataAnalysis : | Dollaro australiano.
+/currencyQuotes : | Dollaro statunitense.
+/investment : | Dollaro delle isole Cayman.
+/historicalEarning : | Yen giapponese.
+
 ---
 
 # Software utilizzati
