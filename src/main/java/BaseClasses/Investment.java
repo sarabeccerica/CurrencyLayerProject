@@ -151,7 +151,8 @@ public class Investment extends Currency{
 			}
 			FileWriter writer = new FileWriter(file);
 			JSONObject jObject = new JSONObject();
-			String dateString = "" + investmentDate.get(Calendar.YEAR)+"-" + investmentDate.get(Calendar.MONTH) +"-"+ investmentDate.get(Calendar.DATE);
+			int month = investmentDate.get(Calendar.MONTH)+1;
+			String dateString = "" + investmentDate.get(Calendar.YEAR)+"-" + month +"-"+ investmentDate.get(Calendar.DATE);
 			jObject.put("name", investorName);
 			jObject.put("date", dateString);
 			jObject.put("currency", super.getName());
@@ -188,8 +189,8 @@ public class Investment extends Currency{
 				 JSONObject jObject= new JSONObject();
 				 jObject=(JSONObject)list.get(i);
 				 if(jObject.get("name").equals(name)) {
-					 	stringDate = (String)((JSONObject) list.get(i)).get("date");
-					 	String[] splitDate = stringDate.split("-");
+					 stringDate = (String)((JSONObject) list.get(i)).get("date");
+					 String[] splitDate = stringDate.split("-");
 					 date.set(Integer.parseInt(splitDate[0]),Integer.parseInt(splitDate[1]),Integer.parseInt(splitDate[2]));
 					 this.amount=(double)jObject.get("amount");
 					 this.investmentDate=date;

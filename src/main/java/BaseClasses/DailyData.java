@@ -69,6 +69,7 @@ public class DailyData {
 	 * yyyy-mm-dd
 	 */
 	public String toStringDate() {
-		return ""+date.get(Calendar.YEAR)+"-" + date.get(Calendar.MONTH) +"-"+ date.get(Calendar.DATE);
+		int month = date.get(Calendar.MONTH)+1;
+		return ""+date.get(Calendar.YEAR)+"-" + month +"-"+ date.get(Calendar.DATE);
 	}
 }
