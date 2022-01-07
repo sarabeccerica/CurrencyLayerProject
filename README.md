@@ -1,3 +1,4 @@
+![CurrencyAnaLayer](https://user-images.githubusercontent.com/91334936/148557370-a8079bf1-5a96-44c7-ae4b-d0f37e24dbbd.jpeg)
 # CURRENCY ANALAYER 
 Currency Analayer è un'applicazione web con lo scopo di analizzare i dati relativi alle valute restituite dalla chiamata all'API currencylayer.
 Il servizio è costituito dalla possibilità di visualizzare i dati storici delle valute di interesse nell'arco di 5 giorni, le relative statistiche e infine la creazione di un
