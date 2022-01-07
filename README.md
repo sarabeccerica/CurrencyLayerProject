@@ -18,43 +18,44 @@ investimento.
   
 # APPLICAZIONE
 Tramite l'API CurrencyLayer il programma riceve salva e processa i dati relativi ad i cambi di valuta in base all USD, che vengono poi convertiti in base EUR. All'avvio viene creata una struttura dati contenente tutte le informazioni sulle valute degli ultimi 5 giorni fornite dall'API, che possono essere poi visualizzate dall'utente, inoltre si può creare un investimento su una valuta e valutarne poi l'andamento nei 5 giorni successivi mediante il salvataggio su file dello stesso.
+Una volta lanciato il programma tramite un IDE o tramite il terminale si può visionare il progetto passando i vari parametri,descritti in seguito, all'indirizzo http://localhost:8080.
 
 ## STATISTICHE :bar_chart:
 TIPO DI STATISTICA | COSA RESTITUISCE 
 ------------ | -------------
-VARIANZA: | Restitusce la variazione di una valuta in un periodo di tempo di 5 giorni.
-MEDIA: | Restituisce il valore medio di una valuta in un periodo di tempo di 5 giorni.
+VARIANZA | Restitusce la variazione di una valuta in un periodo di tempo di 5 giorni.
+MEDIA | Restituisce il valore medio di una valuta in un periodo di tempo di 5 giorni.
 
 ## FILTRI :memo:
 TIPO DI FILTRO | COSA RESTITUISCE
 ------------ | -------------
-GIORNO, MESE, ANNO: |  Vengono restituiti i valori delle valute di interesse relativi al giorno specificato e la valuta con andamento peggiore.
-VALUTA: | Vengono restituite le statische della valuta di interesse.
+GIORNO, MESE, ANNO |  Vengono restituiti i valori delle valute di interesse relativi al giorno specificato e la valuta con andamento peggiore.
+VALUTA | Vengono restituite le statische della valuta di interesse.
 
 
 ## VALUTE :moneybag:
 Le valute disponibili di interesse selezionate sono:
 VALUTA | PROVENIENZA
 ------------ | -------------
-CHF : | Franco svizzero.
-GBP : | Sterlina inglese.
-AUD : | Dollaro australiano.
-USD : | Dollaro statunitense.
-KYD : | Dollaro delle isole Cayman.
-JPY : | Yen giapponese.
-CNY : | Yuan cinese.
+CHF | Franco svizzero.
+GBP | Sterlina inglese.
+AUD | Dollaro australiano.
+USD | Dollaro statunitense.
+KYD | Dollaro delle isole Cayman.
+JPY | Yen giapponese.
+CNY | Yuan cinese.
 
 
 ## ROTTE 
 Sono disponibili 6 rotte:
-ROTTA | PROVENIENZA
------------- | -------------
-/quotes : | Restituisce tutti i dati sull'andamento delle valute negli ultimi 5 giorni.
-/dailyQuotes : | Sterlina inglese.
-/dataAnalysis : | Dollaro australiano.
-/currencyQuotes : | Dollaro statunitense.
-/investment : | Dollaro delle isole Cayman.
-/historicalEarning : | Yen giapponese.
+ROTTA | PARAMETRI | RITORNO
+------------ | ------------- | -------------
+/quotes | Non prende nessun parametro. | Restituisce un JSONArray con tutti i dati sull'andamento delle valute negli ultimi 5 giorni.
+/quotes/daily | Prende in input tre interi che corrispondono a una data: YEAR, MONTH, DAY. | Restituisce un JSONObject con i dati sulle valute relativi ad uno specifico giorno e la valuta con andamento peggiore.
+/quotes/analysis | Prende in input una stringa che corrisponde alla VALUTA di cui si desidera avere le analisi. | Restituisce un JSONObject con la media e la varianza di una valuta.
+/quotes/currency | Prende in input una stringa che corrisponde alla VALUTA di cui si desidera avere l'andamento. | Restituisce un JSONArray con i dati sull'andamento di una specifica valuta negli ultimi cinque giorni.
+/investment | Prende in input una stringa che corrisponde al nome dell'investitore, una stringa che correisponde alla VALUTA su cui si vuole investire e un intero che corrisponde a quanto si vuole investire. |  Restituisce una stringa che riferisce se l'investimento è stato eseguito o meno.
+/investment/earning | Prende in input una stringa che corrisponde al nome dell'investitore. | Restituisce un vettore con i guadagni di ogni giornata.
 
 ---
 
