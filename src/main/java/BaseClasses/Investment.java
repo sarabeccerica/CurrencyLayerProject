@@ -40,7 +40,7 @@ public class Investment extends Currency{
 	/**
 	 * @param file contiene il documento con i dati relativi all'investimento
 	 */
-	private final File file= new File("CurrencyLayerProject/src/main/java/BaseClasses/Investments.json");
+	private final File file= new File("src/main/java/BaseClasses/Investments.json");
 	/**
 	 * Costruttore della classe Investment
 	 * @param name name è il nome della valuta

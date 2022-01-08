@@ -40,6 +40,13 @@ public class Controller {
 	 * @param data contiene le informazioni sulle valute rielaborate 
 	 */
 	HistoricalData data = new HistoricalData(call.readFile());
+	
+	@RequestMapping(value = "/convert",method = RequestMethod.GET)
+	public String convertData(){
+		data.ConvertData();
+		return "Valute convertite da cambio USD  a cambio EUR";
+	}
+	
 	/**
 	 * Gestisce le chiamate inoltrate sulla rotta /quotes
 	 * @return restituisce tutti i dati sulle valute nel periodo degli ultimi 5 giorni.

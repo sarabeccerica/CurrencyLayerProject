@@ -18,7 +18,7 @@ public interface DataAnalysis {
 	 * di ottenere i tassi di cambio in base al dollaro, con questo metodo vengono convertiti
 	 * sulla base dell'euro
 	 */
-	public abstract void ConvertData(ArrayList<DailyData> allData);
+	public abstract void ConvertData();
 	/**
 	 * Metodo per il calcolo del valore medio di una moneta
 	 * @param currency è il nome della moneta di cui si richiede il calcolo

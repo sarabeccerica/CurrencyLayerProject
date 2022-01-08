@@ -52,18 +52,18 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	 * @param historicalData è la struttura dati contenente tutte le informazioni sulle valute
 	 */
 	public HistoricalData(ArrayList<DailyData> historicalData) {
-		ConvertData(historicalData);
+		this.historicalData = historicalData;
 	}
 	/**
 	 * Metodo per la conversione dei valori delle monete, l'API Currencylayer permette
 	 * di ottenere i tassi di cambio in base al dollaro, con questo metodo vengono convertiti
 	 * sulla base dell'euro
 	 */
-	public void ConvertData(ArrayList<DailyData> allData) {
+	public void ConvertData() {
 		double eurUsd=1;
-		for(int i=0;i<allData.size();i++) {
+		for(int i=0;i<historicalData.size();i++) {
 			DailyData daily= new DailyData();
-			daily=allData.get(i);
+			daily=historicalData.get(i);
 			if(i==0)
 				eurUsd=1/daily.getCurrencies().get(i).getValue();
 			for(int j=0;j<daily.getCurrencies().size();j++) {
@@ -195,8 +195,8 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	public JSONArray getCurrencyValues(String currency) throws CurrencyNotFoundException{
 		boolean flag = true;
 		JSONArray allCurrencies = new JSONArray();
-		JSONObject dailyCurrency = new JSONObject();
 		for(DailyData daily: historicalData) {
+			JSONObject dailyCurrency = new JSONObject();
 			dailyCurrency.put("date", daily.toStringDate());
 			for(int j=0;j<daily.getCurrencies().size();j++)
 				if(daily.getCurrencies().get(j).getName().equals(currency)) {
