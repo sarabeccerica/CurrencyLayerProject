@@ -62,7 +62,7 @@ ROTTA | PARAMETRI | RITORNO
 Prima di iniziare a utilizzare le altre rotte bisogna utilizzare una volta la rotta /convert per convertire tutte le valute in cambio EUR.
 ATTENZIONE: si può lanciare solo una volta a inizio programma la rotta /convert.
 
-## TEST 
+## ECCEZIONI 
 Abbiamo creato delle eccezioni specifiche per le nostre esigenze che potete trovare [qui.](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/src/main/java/Exceptions)
 * **CurrencyNotFoundException:** viene lanciata se la VALUTA  presa in input non è tra le valute disponibili e quando parte viene visualizzato il messaggio:
   ### "ERRORE: Currency Not Found."
