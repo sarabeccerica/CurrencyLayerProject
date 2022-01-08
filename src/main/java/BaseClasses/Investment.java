@@ -211,7 +211,7 @@ public class Investment extends Currency{
 	 */
 	public void historicalEarnings(Vector<Double> historicalQuotes) {
 		for(Double quotes : historicalQuotes)
-		historicalEarnings.add(quotes*this.amount);
+			historicalEarnings.add(quotes*this.amount);
 	}
 	/**
 	 * Metodo per il calcolo dei giorni passati dalla data dell'investimento
