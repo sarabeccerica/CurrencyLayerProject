@@ -40,11 +40,24 @@ public class Controller {
 	 * @param data contiene le informazioni sulle valute rielaborate 
 	 */
 	HistoricalData data = new HistoricalData(call.readFile());
-	
+	/**
+	 * @param isConverted è un flag necessario per sapere se la conversione delle quote
+	 * è stata eseguita
+	 */
+	boolean isConverted=false;
+	/**
+	 * Gestisce le chiamate inoltrate sulla rotta /convert
+	 * @return restituisce una stringa che comunica che la conversione è andata a buon fine
+	 * oppure se era già stata eseguita
+	 */
 	@RequestMapping(value = "/convert",method = RequestMethod.GET)
 	public String convertData(){
-		data.ConvertData();
-		return "Valute convertite da cambio USD  a cambio EUR";
+		if(!isConverted) {
+			data.ConvertData();
+			isConverted=true;
+			return "Valute convertite da cambio USD  a cambio EUR";
+		}
+		return "Valute già convertite";
 	}
 	
 	/**

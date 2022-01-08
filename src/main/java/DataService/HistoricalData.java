@@ -177,7 +177,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 				flag = false;
 				dailyCurrency.put("date", dateString);
 				for(int j=0;j<daily.getCurrencies().size();j++)
-					dailyCurrency.put('"'+eurCurrencies[j]+'"',daily.getCurrencies().get(j).getValue());
+					dailyCurrency.put('"'+daily.getCurrencies().get(j).getName()+'"',daily.getCurrencies().get(j).getValue());
 			}
 		dailyCurrency.put('"'+"lower: "+DailyLower(date).getName()+'"',DailyLower(date).getValue());
 		if(flag)
@@ -200,7 +200,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 			dailyCurrency.put("date", daily.toStringDate());
 			for(int j=0;j<daily.getCurrencies().size();j++)
 				if(daily.getCurrencies().get(j).getName().equals(currency)) {
-					dailyCurrency.put('"'+"EUR"+currency+'"',daily.getCurrencies().get(j).getValue());
+					dailyCurrency.put('"'+currency+'"',daily.getCurrencies().get(j).getValue());
 					flag = false;
 				}
 			allCurrencies.add(dailyCurrency);
