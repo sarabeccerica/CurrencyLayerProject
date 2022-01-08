@@ -60,6 +60,7 @@ ROTTA | PARAMETRI | RITORNO
 /investment/earning | Prende in input una stringa che corrisponde al nome dell'investitore. | Restituisce un vettore con i guadagni di ogni giornata.
 
 Prima di iniziare a utilizzare le altre rotte bisogna utilizzare una volta la rotta /convert per convertire tutte le valute in cambio EUR.
+ATTENZIONE: si può lanciare solo una volta a inizio programma la rotta /convert.
 
 ## TEST 
 Abbiamo creato delle eccezioni specifiche per le nostre esigenze che potete trovare [qui.](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/src/main/java/Exceptions)
