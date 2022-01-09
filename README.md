@@ -62,12 +62,54 @@ ROTTA | PARAMETRI | RITORNO
 Prima di iniziare a utilizzare le altre rotte bisogna utilizzare una volta la rotta /convert per convertire tutte le valute in cambio EUR.
 ATTENZIONE: si può lanciare solo una volta a inizio programma la rotta /convert.
 
+ESECUZIONE SU POSTMAN: 
+
+1- CONVERSIONE VALUTE 
+
+  ![convert](https://user-images.githubusercontent.com/91334936/148673168-725aa930-ffa4-40de-b40b-458b7a6cb9fa.png)
+
+2- DATI STORICI DI TUTTE LE VALUTE
+
+  ![quotes](https://user-images.githubusercontent.com/91334936/148672986-1886fe37-e39f-465b-a039-b42eac73442c.png)
+   
+3- VALUTE IN UN DETERMINATO GIORNO
+
+  ![daily](https://user-images.githubusercontent.com/91334936/148673219-371de111-11c7-4fae-80b7-9a7a984bd7f9.png)
+
+   
+4- MEDIA E VARIANZA DI UNA VALUTA
+
+  ![analysis](https://user-images.githubusercontent.com/91334936/148673080-53fb5b85-c543-4000-93da-6d7c8a0d295d.png)
+  
+5- DATI STORICI DI UNA VALUTA
+
+  ![currency4](https://user-images.githubusercontent.com/91334936/148673383-94391784-69e1-467f-800e-771a813ab27c.png)
+
+6- INVESTIMENTO
+
+  ![investment](https://user-images.githubusercontent.com/91334936/148673331-528b6413-d276-4e96-bf45-e8f7f873f212.png)
+  
+7- GUADAGNI DI UN INVESTIMENTO
+
+  ![earnings](https://user-images.githubusercontent.com/91334936/148673333-98a72330-0d11-4f94-9005-f31b0e849cba.png)
+
 ## ECCEZIONI 
-Abbiamo creato delle eccezioni specifiche per le nostre esigenze che potete trovare [qui.](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/src/main/java/Exceptions)
+Abbiamo creato delle eccezioni specifiche per le nostre esigenze che potete trovare [qui](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/src/main/java/Exceptions).
 * **CurrencyNotFoundException:** viene lanciata se la VALUTA  presa in input non è tra le valute disponibili e quando parte viene visualizzato il messaggio:
   ### "ERRORE: Currency Not Found."
 * **DateNotFoundException:** viene lanciata se la DATA inserita non è disponibile, quindi se sono passati più di 5 giorni dalla data o se è una data futura e quando parte viene visualizzato il seguente messaggio: 
   ### "ERRORE: Date Not Found."
+  
+## TEST
+Con il frameword JUnit abbiamo implementato due test:
+* 1° TEST: abbiamo testato il metodo DailyLower della classe HistoricalData.
+* 2° TEST: abbiamo testato il metodo DaysNumber della classe Investment.
+
+Potete trovare le classi con i test [qui](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/src/test/java/Tests).
+
+## DOCUMENTAZIONE JAVADOC
+Potete trovare la documentazione javaDoc [qui](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/doc).
+
 
 ---
 
