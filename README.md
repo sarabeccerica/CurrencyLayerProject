@@ -124,3 +124,8 @@ Potete trovare la documentazione javaDoc [qui](https://github.com/sarabeccerica/
 
 
 ---
+
+# Autori
+Questo progetto è stato realizzato da:
+* Beccerica Sara:APICall, ReadFile, Contoller, exceptions, ReadMe.
+* Attili Loris:BaseClasses, interfacce, HistoricalData, Test, JavaDoc.
