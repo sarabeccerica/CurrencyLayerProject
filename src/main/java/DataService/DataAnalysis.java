@@ -24,6 +24,7 @@ public interface DataAnalysis {
 	 * @param currency è il nome della moneta di cui si richiede il calcolo
 	 * della media
 	 * @return restituisce il valore della media
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	public abstract double CurrencyAverage(String currency) throws CurrencyNotFoundException;
 	/**
@@ -31,6 +32,7 @@ public interface DataAnalysis {
 	 * @param currency è il nome della moneta di cui si richiede il calcolo
 	 * della varianza
 	 * @return restituisce il valore della varianza
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	public abstract double CurrencyVariance(String currency) throws CurrencyNotFoundException;
 	/**
@@ -38,6 +40,7 @@ public interface DataAnalysis {
 	 * @param date è la data di cui si vuole trovare la moneta con valore più basso
 	 * @return restituisce un oggetto di classe Currency che nel giorno richiesto ha
 	 * registrato il valore più basso
+	 * @throws DateNotFoundException se non è possibile trovare la data richiesta
 	 */
 	public abstract Currency DailyLower(Calendar date) throws DateNotFoundException;
 }

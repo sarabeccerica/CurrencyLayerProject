@@ -81,6 +81,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	 * @param currency è il nome della moneta di cui si richiede il calcolo
 	 * della media
 	 * @return restituisce il valore della media
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	public double CurrencyAverage(String currency) throws CurrencyNotFoundException{
 		boolean flag = true;
@@ -102,6 +103,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	 * @param currency è il nome della moneta di cui si richiede il calcolo
 	 * della varianza
 	 * @return restituisce il valore della varianza
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	public double CurrencyVariance(String currency) throws CurrencyNotFoundException{
 		boolean flag = true;
@@ -123,6 +125,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	 * @param date è la data di cui si vuole trovare la moneta con valore più basso
 	 * @return restituisce un oggetto di classe Currency che nel giorno richiesto ha
 	 * registrato il valore più basso
+	 * @throws DateNotFoundException se non è possibile trovare la data richiesta
 	 */
 	public Currency DailyLower(Calendar date) throws DateNotFoundException{
 		boolean flag = true;
@@ -153,6 +156,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	 * @param currency è una stringa contenente il nome della valuta di cui si
 	 * richiedono le statistiche
 	 * @return restituisce le informazioni della valuta all' interno di un JSONObject
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	@SuppressWarnings("unchecked")
 	public JSONObject getCurrencyStats(String currency) throws CurrencyNotFoundException {
@@ -165,6 +169,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	 * Metodo get per avere i dati delle valute relativi ad un giorno specifico
 	 * @param date è la data di cui si richiedono i dati
 	 * @return restituisce un JSONObject contenente i dati sulle valute relativi al giorno indicato
+	 * @throws DateNotFoundException se non è possibile trovare la data richiesta
 	 */
 	@SuppressWarnings("unchecked")
 	public JSONObject getDailyCurrencies(Calendar date) throws DateNotFoundException {
@@ -188,8 +193,8 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	 * Metodo get che permette di ricevere le quote di una valuta nell'arco dei 5 giorni
 	 * @param currency  è una stringa contenente il nome della valuta di cui si
 	 * richiedono le statistiche
-	 * @return restituisce le informazioni della valuta all' interno di un JSONObject	
-	 * @throws CurrencyNotFoundException
+	 * @return restituisce le informazioni della valuta all' interno di un JSONObject
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	@SuppressWarnings("unchecked")
 	public JSONArray getCurrencyValues(String currency) throws CurrencyNotFoundException{
@@ -230,6 +235,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	 * @param name è il nome della valuta di cui si richiedono i valori
 	 * @param days è il numero di giorni di cui si richiedono i dati, partendo dal giorno corrente
 	 * @return restituisce il vettore contenente i valori della valuta richiesti
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	public Vector<Double> getCurrencyQuotes(String name,int days) throws CurrencyNotFoundException{
 		boolean flag = true;

@@ -70,9 +70,10 @@ public class Controller {
 	}
 	/**
 	 * Gestisce le chiamate inoltrate sulla rotta /quotes/daily
-	 * @param year, month, day sono interi che descrivono la data di interesse in formato
-	 * yyyy-mm-dd
+	 * @param year, @param month, @param day sono interi che descrivono la data di interesse 
+	 * in formato yyyy-mm-dd
 	 * @return restituisce i dati sulle valute relativi ad uno specifico giorno
+	 * @throws DateNotFoundException se non è possibile trovare la data richiesta
 	 */
 	@RequestMapping(value ="/quotes/daily",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestDailyCurrencies(@RequestParam("year") int year,
@@ -86,6 +87,7 @@ public class Controller {
 	 * Gestisce le chiamate inoltrate sulla rotta /quotes/analysis
 	 * @param name è il nome della valuta di cui si richiedono le statistiche
 	 * @return restituisce la media e la varianza di una valuta
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	@RequestMapping(value ="/quotes/analysis",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestCurrencyStats (@RequestParam("name") String currency) throws CurrencyNotFoundException{
@@ -95,6 +97,7 @@ public class Controller {
 	 * Gestisce le chiamate inoltrate sulla rotta /quotes/analysis
 	 * @param name è il nome della valuta di cui si richiedono le quote
 	 * @return restituisce un vettore di double contenente le quote della valuta
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	@RequestMapping(value = "/quotes/currency",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestCurrencyQuotes(@RequestParam("name") String currency) throws CurrencyNotFoundException{
@@ -124,6 +127,7 @@ public class Controller {
 	 * comunica i guadagno storici relativi ad un investimento
 	 * @param name è il nome dell'investitore di cui si richiedono i dati
 	 * @return restituisce un vettore con i guadagni di ogni giornata
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	@RequestMapping(value ="/investment/earning",method = RequestMethod.GET) 
 	public Vector<Double> historicalEarning(@RequestParam("investor") String name) throws CurrencyNotFoundException{

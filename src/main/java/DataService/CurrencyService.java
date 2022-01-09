@@ -25,7 +25,7 @@ public interface CurrencyService {
 	 * @param currency è una stringa contenente il nome della valuta di cui si
 	 * richiedono le statistiche
 	 * @return restituisce le informazioni della valuta all' interno di un JSONObject
-	 * @throws CurrencyNotFoundException
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	public abstract JSONObject getCurrencyStats(String currency) throws CurrencyNotFoundException;
 	/**
@@ -33,14 +33,14 @@ public interface CurrencyService {
 	 * @param currency  è una stringa contenente il nome della valuta di cui si
 	 * richiedono le statistiche
 	 * @return restituisce le informazioni della valuta all' interno di un JSONObject	
-	 * @throws CurrencyNotFoundException
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	public abstract JSONArray getCurrencyValues(String currency) throws CurrencyNotFoundException;
 	/**
 	 * Metodo get per avere i dati delle valute relativi ad un giorno specifico
 	 * @param date è la data di cui si richiedono i dati
 	 * @return restituisce un JSONObject contenente i dati sulle valute relativi al giorno indicato
-	 * @throws DateNotFoundException
+	 * @throws DateNotFoundException se non è possibile trovare la data richiesta
 	 */
 	public abstract JSONObject getDailyCurrencies(Calendar date) throws DateNotFoundException;
 	/**
@@ -48,7 +48,7 @@ public interface CurrencyService {
 	 * @param name è il nome della valuta di cui si richiedono i valori
 	 * @param days è il numero di giorni di cui si richiedono i dati, partendo dal giorno corrente
 	 * @return restituisce il vettore contenente i valori della valuta richiesti
-	 * @throws CurrencyNotFoundException
+	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
 	 */
 	public abstract Vector<Double> getCurrencyQuotes(String name,int days) throws CurrencyNotFoundException;
 }
