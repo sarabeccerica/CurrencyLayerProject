@@ -107,6 +107,9 @@ Con il frameword JUnit abbiamo implementato due test:
 
 Potete trovare le classi con i test [qui](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/src/test/java/Tests).
 
+
+---
+
 ## DOCUMENTAZIONE JAVADOC
 Potete trovare la documentazione javaDoc [qui](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/doc).
 
@@ -118,3 +121,6 @@ Potete trovare la documentazione javaDoc [qui](https://github.com/sarabeccerica/
 * [Maven](https://maven.apache.org/) - software di gestione di progetti e librerie
 * [Spring Boot](https://spring.io/projects/spring-boot) - framework per sviluppo di applicazioni in Java
 * [Postman](https://www.postman.com/) - ambiente di sviluppo API per effettuare richieste
+
+
+---
