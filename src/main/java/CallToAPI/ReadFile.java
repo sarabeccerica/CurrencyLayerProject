@@ -14,9 +14,15 @@ import org.json.simple.parser.ParseException;
 import BaseClasses.DailyData;
 import BaseClasses.Currency;
 
+/**
+ * Questa classe gestisce la lettura da file delle informazioni utilizzando JSONArray
+ * Come struttura dati di ritorno
+ * @author Beccerica Sara
+ */
+
 public class ReadFile {
 	/**
-	 * @param CURRENCIES è una stringa che contiene la lista delle valute di interesse
+	 * @param CURRENCIES e' una stringa che contiene la lista delle valute di interesse
 	 * per il programma 
 	 */
 	private static final String CURRENCIES = "EUR,JPY,GBP,CHF,AUD";
@@ -25,7 +31,7 @@ public class ReadFile {
 	 */
 	private final String fileName = "src/main/java/DataService/data.json";
 	/**
-	 * @param currencies è un vettore di stringhe ottenuto eseguendo la funzione
+	 * @param currencies e' un vettore di stringhe ottenuto eseguendo la funzione
 	 * split sulla stringa delle valute
 	 */
 	private String[] currencies=CURRENCIES.split(",");
@@ -52,7 +58,7 @@ public class ReadFile {
 	 /**
 	  * Questa funzione converte una struttura dati JSONArray contenente i dati
 	  * in un ArrayList
-	  * @param jsonArray è il parametro che contiene i dati in formato json
+	  * @param jsonArray e' il parametro che contiene i dati in formato json
 	  * @return restituisce un ArrayList con i dati di interesse
 	  */
 	public ArrayList<DailyData> convertJSONArray(JSONArray jsonArray) {

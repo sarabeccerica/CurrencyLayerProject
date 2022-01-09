@@ -10,6 +10,7 @@ import Exceptions.DateNotFoundException;
 /**
  * Questa interfaccia descrive come una classe che la implementa
  * deve gestire i dati e le operazioni sulle valute
+ * @author Attili Loris
  */
 
 public interface DataAnalysis {
@@ -21,26 +22,26 @@ public interface DataAnalysis {
 	public abstract void ConvertData();
 	/**
 	 * Metodo per il calcolo del valore medio di una moneta
-	 * @param currency è il nome della moneta di cui si richiede il calcolo
+	 * @param currency e' il nome della moneta di cui si richiede il calcolo
 	 * della media
 	 * @return restituisce il valore della media
-	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
+	 * @throws CurrencyNotFoundException se non e' possibile trovare la valuta richiesta
 	 */
 	public abstract double CurrencyAverage(String currency) throws CurrencyNotFoundException;
 	/**
 	 * Metodo per il calcolo della varianza di una moneta
-	 * @param currency è il nome della moneta di cui si richiede il calcolo
+	 * @param currency e' il nome della moneta di cui si richiede il calcolo
 	 * della varianza
 	 * @return restituisce il valore della varianza
-	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
+	 * @throws CurrencyNotFoundException se non e' possibile trovare la valuta richiesta
 	 */
 	public abstract double CurrencyVariance(String currency) throws CurrencyNotFoundException;
 	/**
 	 * Metodo per il calcolo della moneta con il valore più basso in un dato giorno
-	 * @param date è la data di cui si vuole trovare la moneta con valore più basso
+	 * @param date e' la data di cui si vuole trovare la moneta con valore più basso
 	 * @return restituisce un oggetto di classe Currency che nel giorno richiesto ha
 	 * registrato il valore più basso
-	 * @throws DateNotFoundException se non è possibile trovare la data richiesta
+	 * @throws DateNotFoundException se non e' possibile trovare la data richiesta
 	 */
 	public abstract Currency DailyLower(Calendar date) throws DateNotFoundException;
 }

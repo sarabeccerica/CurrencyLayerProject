@@ -5,8 +5,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  *L'eccezione DateNotFound viene lanciata quando la
- *data richiesta non è presente all'interno dei dati forniti
- *dall'API, l'eccezione è gestita dalla classe GlobalExceptionHandler
+ *data richiesta non e' presente all'interno dei dati forniti
+ *dall'API, l'eccezione e' gestita dalla classe GlobalExceptionHandler
+ * @author Beccerica Sara
  */
 
 @ResponseStatus(value=HttpStatus.BAD_REQUEST)

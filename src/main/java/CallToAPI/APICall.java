@@ -21,6 +21,7 @@ import BaseClasses.DailyData;
 /**
  * Questa classe gestisce la chiamata all'API Currencylayer utilizzando JSONArray
  * Come struttura dati di ritorno per i dati sulle monete
+ * @author Beccerica Sara
  */
 
 public class APICall {
@@ -39,12 +40,12 @@ public class APICall {
 	 */
 	private static final String ENDPOINT = "historical";
 	/**
-	 * @param CURRENCIES è una stringa che contiene la lista delle valute di interesse
+	 * @param CURRENCIES e' una stringa che contiene la lista delle valute di interesse
 	 * per il programma 
 	 */
 	private static final String CURRENCIES = "EUR,CHF,GBP,AUD,KYD,JPY,CNY";
 	/**
-	 * @param currencies è un vettore di stringhe ottenuto eseguendo la funzione
+	 * @param currencies e' un vettore di stringhe ottenuto eseguendo la funzione
 	 * split sulla stringa delle valute
 	 */
 	private String[] currencies=CURRENCIES.split(",");
@@ -67,7 +68,7 @@ public class APICall {
 	}
 	/**
 	  * Questa funzione effettua la chiamata all'API relativa al parametro in input
-	  * @param date che è una stringa contenente la data in formato yyyy-mm-dd
+	  * @param date che e' una stringa contenente la data in formato yyyy-mm-dd
 	  * @return restituisce un JSONObject che contiene le valute di quel giorno
 	  */
 	public JSONObject sendLiveRequest(String date) {

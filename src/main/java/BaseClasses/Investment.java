@@ -16,12 +16,12 @@ import org.json.simple.parser.ParseException;
 /**
  * Questa classe descrive e modella il comportamento di un investimento
  * ereditando dalla classe Currency la moneta su cui si è svolto l'investimento
- *
+ * @author Attili Loris
  */
 
 public class Investment extends Currency{
 	/**
-	 * @param investmentDate contiene la data in cui è stato fatto l'investimento
+	 * @param investmentDate contiene la data in cui e' stato fatto l'investimento
 	 */
 	private Calendar investmentDate;
 	/**
@@ -43,11 +43,11 @@ public class Investment extends Currency{
 	private final File file= new File("src/main/java/BaseClasses/Investments.json");
 	/**
 	 * Costruttore della classe Investment
-	 * @param name name è il nome della valuta
-	 * @param value value è il valore della valuta al momento dell'investimento
-	 * @param investorName investorName è il nome dell'investitore
-	 * @param amount amount è il totale di denaro investito
-	 * @param date date è la data in cui è stato effettuato l'investimento
+	 * @param name name e' il nome della valuta
+	 * @param value value e' il valore della valuta al momento dell'investimento
+	 * @param investorName investorName e' il nome dell'investitore
+	 * @param amount amount e' il totale di denaro investito
+	 * @param date date e' la data in cui e' stato effettuato l'investimento
 	 */
 	public Investment(String name, double value, String investorName, double amount,Calendar date) {
 		super(name, value);
@@ -57,10 +57,10 @@ public class Investment extends Currency{
 	}
 	/**
 	 * Costruttore della classe Investment senza il valore della valuta
-	 * @param name name è il nome della valuta
-	 * @param investorName investorName è il nome dell'investitore
-	 * @param amount amount è il totale di denaro investito
-	 * @param date date è la data in cui è stato effettuato l'investimento
+	 * @param name name e' il nome della valuta
+	 * @param investorName investorName e' il nome dell'investitore
+	 * @param amount amount e' il totale di denaro investito
+	 * @param date date e' la data in cui e' stato effettuato l'investimento
 	 */
 	public Investment(String name, String investorName, double amount,Calendar date) {
 		super(name,0);
@@ -107,14 +107,14 @@ public class Investment extends Currency{
 	}
 	/**
 	 * Metodo get per l'utilizzo di investmentDate all'esterno della classe
-	 * @return restituisce la data in cui è stato effettuato l'investimento
+	 * @return restituisce la data in cui e' stato effettuato l'investimento
 	 */
 	public Calendar getInvestmentDate() {
 		return investmentDate;
 	}
 	/**
 	 * Metodo set per la modifica di investmentDate all'esterno della classe
-	 * @param investmentDate contiene la data in cui è stato effettuato l'investimento
+	 * @param investmentDate contiene la data in cui e' stato effettuato l'investimento
 	 */
 	public void setInvestmentDate(Calendar investmentDate) {
 		this.investmentDate = investmentDate;

@@ -20,6 +20,7 @@ import BaseClasses.Investment;
  *  Questa classe rappresenta un Controllerper gestire le chiamate HTTP inoltrate 
  *  dall'utente su una specifica rotta. Invia un oggetto ResponseEntity con i dati
  *  richiesti in formatoJson e il codice di stato HTTP
+ *  @author Beccerica Sara
  */
 
 @RestController
@@ -41,13 +42,13 @@ public class Controller {
 	 */
 	HistoricalData data = new HistoricalData(call.readFile());
 	/**
-	 * @param isConverted è un flag necessario per sapere se la conversione delle quote
-	 * è stata eseguita
+	 * @param isConverted e' un flag necessario per sapere se la conversione delle quote
+	 * e' stata eseguita
 	 */
 	boolean isConverted=false;
 	/**
 	 * Gestisce le chiamate inoltrate sulla rotta /convert
-	 * @return restituisce una stringa che comunica che la conversione è andata a buon fine
+	 * @return restituisce una stringa che comunica che la conversione e' andata a buon fine
 	 * oppure se era già stata eseguita
 	 */
 	@RequestMapping(value = "/convert",method = RequestMethod.GET)
@@ -70,10 +71,11 @@ public class Controller {
 	}
 	/**
 	 * Gestisce le chiamate inoltrate sulla rotta /quotes/daily
-	 * @param year, @param month, @param day sono interi che descrivono la data di interesse 
-	 * in formato yyyy-mm-dd
+	 * @param year e' un intero che indica l'anno della data in input
+	 * @param month e' un intero che indica il mese della data in input
+	 * @param day e' un intero che indica il giornp del mese della data in input
 	 * @return restituisce i dati sulle valute relativi ad uno specifico giorno
-	 * @throws DateNotFoundException se non è possibile trovare la data richiesta
+	 * @throws DateNotFoundException se non e' possibile trovare la data richiesta
 	 */
 	@RequestMapping(value ="/quotes/daily",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestDailyCurrencies(@RequestParam("year") int year,
@@ -85,9 +87,9 @@ public class Controller {
 	}
 	/**
 	 * Gestisce le chiamate inoltrate sulla rotta /quotes/analysis
-	 * @param name è il nome della valuta di cui si richiedono le statistiche
+	 * @param currency e' il nome della valuta di cui si richiedono le statistiche
 	 * @return restituisce la media e la varianza di una valuta
-	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
+	 * @throws CurrencyNotFoundException se non e' possibile trovare la valuta richiesta
 	 */
 	@RequestMapping(value ="/quotes/analysis",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestCurrencyStats (@RequestParam("name") String currency) throws CurrencyNotFoundException{
@@ -95,9 +97,9 @@ public class Controller {
 	}
 	/**
 	 * Gestisce le chiamate inoltrate sulla rotta /quotes/analysis
-	 * @param name è il nome della valuta di cui si richiedono le quote
+	 * @param currency e' il nome della valuta di cui si richiedono le quote
 	 * @return restituisce un vettore di double contenente le quote della valuta
-	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
+	 * @throws CurrencyNotFoundException se non e' possibile trovare la valuta richiesta
 	 */
 	@RequestMapping(value = "/quotes/currency",method = RequestMethod.GET)
 	public ResponseEntity<Object> requestCurrencyQuotes(@RequestParam("name") String currency) throws CurrencyNotFoundException{
@@ -106,10 +108,10 @@ public class Controller {
 	/**
 	 * Gestisce le chiamate inoltrate sulla rotta /investment
 	 * Permette di creare un nuovo investimento
-	 * @param name è il nome dell'investitore
-	 * @param currency è la valuta su cui si vuole investire
-	 * @param amount è la somma di denaro che si vuole investire
-	 * @return restituisce una stringa che riferisce se l'investimento è
+	 * @param name e' il nome dell'investitore
+	 * @param currency e' la valuta su cui si vuole investire
+	 * @param amount e' la somma di denaro che si vuole investire
+	 * @return restituisce una stringa che riferisce se l'investimento e'
 	 * stato eseguito o meno
 	 */
 	@RequestMapping(value ="/investment",method = RequestMethod.GET) 
@@ -125,9 +127,9 @@ public class Controller {
 	/**
 	 * Gestisce le chiamate inoltrate sulla rotta /investment/earning
 	 * comunica i guadagno storici relativi ad un investimento
-	 * @param name è il nome dell'investitore di cui si richiedono i dati
+	 * @param name e' il nome dell'investitore di cui si richiedono i dati
 	 * @return restituisce un vettore con i guadagni di ogni giornata
-	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
+	 * @throws CurrencyNotFoundException se non e' possibile trovare la valuta richiesta
 	 */
 	@RequestMapping(value ="/investment/earning",method = RequestMethod.GET) 
 	public Vector<Double> historicalEarning(@RequestParam("investor") String name) throws CurrencyNotFoundException{

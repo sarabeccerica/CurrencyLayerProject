@@ -15,20 +15,21 @@ import Exceptions.DateNotFoundException;
 /**
  * Questa classe descrive il comportamento di una struttura dati contenente 
  * tutte le informazioni relative alle valute in un lasso di tempo
+ * @author Attili Loris
  */
 
 public class HistoricalData implements CurrencyService,DataAnalysis{
 	/**
-	 * @param historicalData è un ArrayList che contiene tutti i dati storici
+	 * @param historicalData e' un ArrayList che contiene tutti i dati storici
 	 * relativi alle valute
 	 */
 	private ArrayList<DailyData> historicalData;
 	/**
-	 * @param EURCURRENCIES è una stringa che contiene tutte le valute di interesse
+	 * @param EURCURRENCIES e' una stringa che contiene tutte le valute di interesse
 	 */
 	private static final String EURCURRENCIES = "EURUSD,EURCHF,EURGBP,EURAUD,EURKYD,EURJPY,EURCNY";
 	/**
-	 * @ param eurCurrencies è un vettore di stringhe, è la lista delle valute di interesse
+	 * @ param eurCurrencies e' un vettore di stringhe, e' la lista delle valute di interesse
 	 */
 	private String[] eurCurrencies=EURCURRENCIES.split(",");
 	/**
@@ -49,7 +50,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	}
 	/**
 	 * Costruttore della classe HistoricalData
-	 * @param historicalData è la struttura dati contenente tutte le informazioni sulle valute
+	 * @param historicalData e' la struttura dati contenente tutte le informazioni sulle valute
 	 */
 	public HistoricalData(ArrayList<DailyData> historicalData) {
 		this.historicalData = historicalData;
@@ -78,10 +79,10 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	}
 	/**
 	 * Metodo per il calcolo del valore medio di una moneta
-	 * @param currency è il nome della moneta di cui si richiede il calcolo
+	 * @param currency e' il nome della moneta di cui si richiede il calcolo
 	 * della media
 	 * @return restituisce il valore della media
-	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
+	 * @throws CurrencyNotFoundException se non e' possibile trovare la valuta richiesta
 	 */
 	public double CurrencyAverage(String currency) throws CurrencyNotFoundException{
 		boolean flag = true;
@@ -100,10 +101,10 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	}
 	/**
 	 * Metodo per il calcolo della varianza di una moneta
-	 * @param currency è il nome della moneta di cui si richiede il calcolo
+	 * @param currency e' il nome della moneta di cui si richiede il calcolo
 	 * della varianza
 	 * @return restituisce il valore della varianza
-	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
+	 * @throws CurrencyNotFoundException se non e' possibile trovare la valuta richiesta
 	 */
 	public double CurrencyVariance(String currency) throws CurrencyNotFoundException{
 		boolean flag = true;
@@ -122,10 +123,10 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	}
 	/**
 	 * Metodo per il calcolo della moneta con il valore più basso in un dato giorno
-	 * @param date è la data di cui si vuole trovare la moneta con valore più basso
+	 * @param date e' la data di cui si vuole trovare la moneta con valore più basso
 	 * @return restituisce un oggetto di classe Currency che nel giorno richiesto ha
 	 * registrato il valore più basso
-	 * @throws DateNotFoundException se non è possibile trovare la data richiesta
+	 * @throws DateNotFoundException se non e' possibile trovare la data richiesta
 	 */
 	public Currency DailyLower(Calendar date) throws DateNotFoundException{
 		boolean flag = true;
@@ -153,10 +154,10 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	
 	/**
 	 * Metodo get per avere un resoconto sulle statistiche di una valuta
-	 * @param currency è una stringa contenente il nome della valuta di cui si
+	 * @param currency e' una stringa contenente il nome della valuta di cui si
 	 * richiedono le statistiche
 	 * @return restituisce le informazioni della valuta all' interno di un JSONObject
-	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
+	 * @throws CurrencyNotFoundException se non e' possibile trovare la valuta richiesta
 	 */
 	@SuppressWarnings("unchecked")
 	public JSONObject getCurrencyStats(String currency) throws CurrencyNotFoundException {
@@ -167,9 +168,9 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	}
 	/**
 	 * Metodo get per avere i dati delle valute relativi ad un giorno specifico
-	 * @param date è la data di cui si richiedono i dati
+	 * @param date e' la data di cui si richiedono i dati
 	 * @return restituisce un JSONObject contenente i dati sulle valute relativi al giorno indicato
-	 * @throws DateNotFoundException se non è possibile trovare la data richiesta
+	 * @throws DateNotFoundException se non e' possibile trovare la data richiesta
 	 */
 	@SuppressWarnings("unchecked")
 	public JSONObject getDailyCurrencies(Calendar date) throws DateNotFoundException {
@@ -191,10 +192,10 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	}
 	/**
 	 * Metodo get che permette di ricevere le quote di una valuta nell'arco dei 5 giorni
-	 * @param currency  è una stringa contenente il nome della valuta di cui si
+	 * @param currency  e' una stringa contenente il nome della valuta di cui si
 	 * richiedono le statistiche
 	 * @return restituisce le informazioni della valuta all' interno di un JSONObject
-	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
+	 * @throws CurrencyNotFoundException se non e' possibile trovare la valuta richiesta
 	 */
 	@SuppressWarnings("unchecked")
 	public JSONArray getCurrencyValues(String currency) throws CurrencyNotFoundException{
@@ -232,10 +233,10 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 	}
 	/**
 	 * Metodo get che permette di ricevere le quote di una valuta in un lasso di tempo specificato
-	 * @param name è il nome della valuta di cui si richiedono i valori
-	 * @param days è il numero di giorni di cui si richiedono i dati, partendo dal giorno corrente
+	 * @param name e' il nome della valuta di cui si richiedono i valori
+	 * @param days e' il numero di giorni di cui si richiedono i dati, partendo dal giorno corrente
 	 * @return restituisce il vettore contenente i valori della valuta richiesti
-	 * @throws CurrencyNotFoundException se non è possibile trovare la valuta richiesta
+	 * @throws CurrencyNotFoundException se non e' possibile trovare la valuta richiesta
 	 */
 	public Vector<Double> getCurrencyQuotes(String name,int days) throws CurrencyNotFoundException{
 		boolean flag = true;

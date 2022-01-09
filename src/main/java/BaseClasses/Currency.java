@@ -1,7 +1,8 @@
 package BaseClasses;
 
 /**
- * Questa classe descrive una valuta, e gestendone il nome e il valore 
+ * Questa classe descrive una valuta, gestendone il nome e il valore
+ * @author Attili Loris
  */
 
 public class Currency {
@@ -31,7 +32,7 @@ public class Currency {
 		this.value=0;
 	}
 	/**
-	 * Questo metodo metodo get è necessario per l'utilizzo del nome della 
+	 * Questo metodo metodo get e' necessario per l'utilizzo del nome della 
 	 * valuta al di fuori della classe
 	 * @return restituisce il nome della valuta
 	 */
@@ -39,15 +40,15 @@ public class Currency {
 		return name;
 	}
 	/**
-	 * Questo metodo set è necessario per modificare il nome di un'istanza
+	 * Questo metodo set e' necessario per modificare il nome di un'istanza
 	 * della classe valuta
-	 * @param name è il nuovo nome da assegnare
+	 * @param name e' il nuovo nome da assegnare
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	/**
-	 * Questo metodo metodo get è necessario per l'utilizzo del valore della 
+	 * Questo metodo metodo get e' necessario per l'utilizzo del valore della 
 	 * valuta al di fuori della classe
 	 * @return restituisce il valore della valuta
 	 */
@@ -55,9 +56,9 @@ public class Currency {
 		return value;
 	}
 	/**
-	 * Questo metodo set è necessario per modificare il valore di un'istanza
+	 * Questo metodo set e' necessario per modificare il valore di un'istanza
 	 * della classe valuta
-	 * @param value è il nuovo valore da assegnare
+	 * @param value e' il nuovo valore da assegnare
 	 */
 	public void setValue(double value) {
 		this.value = value;
