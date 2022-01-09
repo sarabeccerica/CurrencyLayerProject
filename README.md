@@ -94,11 +94,22 @@ ESECUZIONE SU POSTMAN:
   ![earnings](https://user-images.githubusercontent.com/91334936/148673333-98a72330-0d11-4f94-9005-f31b0e849cba.png)
 
 ## ECCEZIONI 
-Abbiamo creato delle eccezioni specifiche per le nostre esigenze che potete trovare [qui.](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/src/main/java/Exceptions)
+Abbiamo creato delle eccezioni specifiche per le nostre esigenze che potete trovare [qui](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/src/main/java/Exceptions).
 * **CurrencyNotFoundException:** viene lanciata se la VALUTA  presa in input non è tra le valute disponibili e quando parte viene visualizzato il messaggio:
   ### "ERRORE: Currency Not Found."
 * **DateNotFoundException:** viene lanciata se la DATA inserita non è disponibile, quindi se sono passati più di 5 giorni dalla data o se è una data futura e quando parte viene visualizzato il seguente messaggio: 
   ### "ERRORE: Date Not Found."
+  
+## TEST
+Con il frameword JUnit abbiamo implementato due test:
+* 1° TEST: abbiamo testato il metodo DailyLower della classe HistoricalData.
+* 2° TEST: abbiamo testato il metodo DaysNumber della classe Investment.
+
+Potete trovare le classi con i test [qui](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/src/test/java/Tests).
+
+## DOCUMENTAZIONE JAVADOC
+Potete trovare la documentazione javaDoc [qui](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/doc).
+
 
 ---
 
