@@ -59,7 +59,15 @@ ROTTA | PARAMETRI | RITORNO
 /investment | Prende in input una stringa che corrisponde al nome dell'investitore, una stringa che correisponde alla VALUTA su cui si vuole investire e un intero che corrisponde a quanto si vuole investire. |  Restituisce una stringa che riferisce se l'investimento è stato eseguito o meno.
 /investment/earning | Prende in input una stringa che corrisponde al nome dell'investitore. | Restituisce un vettore con i guadagni di ogni giornata.
 
-Prima di iniziare a utilizzare il programma bisogna utilizzare una volta la rotta /convert per convertire tutte le valute in cambio EUR.
+Prima di iniziare a utilizzare le altre rotte bisogna utilizzare una volta la rotta /convert per convertire tutte le valute in cambio EUR.
+ATTENZIONE: si può lanciare solo una volta a inizio programma la rotta /convert.
+
+## ECCEZIONI 
+Abbiamo creato delle eccezioni specifiche per le nostre esigenze che potete trovare [qui.](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/src/main/java/Exceptions)
+* **CurrencyNotFoundException:** viene lanciata se la VALUTA  presa in input non è tra le valute disponibili e quando parte viene visualizzato il messaggio:
+  ### "ERRORE: Currency Not Found."
+* **DateNotFoundException:** viene lanciata se la DATA inserita non è disponibile, quindi se sono passati più di 5 giorni dalla data o se è una data futura e quando parte viene visualizzato il seguente messaggio: 
+  ### "ERRORE: Date Not Found."
 
 ---
 

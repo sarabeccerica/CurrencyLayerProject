@@ -88,7 +88,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 		double average=0;
 		for(DailyData daily: historicalData) {
 			for(int i=0;i<daily.getCurrencies().size();i++) {
-				if(daily.getCurrencies().get(i).getName().equals(currency)) {
+				if(daily.getCurrencies().get(i).getName().equals("EUR"+currency)) {
 					average+=daily.getCurrencies().get(i).getValue();
 					flag = false;
 				}
@@ -110,7 +110,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 		double variance=0;
 		for(DailyData daily: historicalData) {
 			for(int i=0;i<daily.getCurrencies().size();i++) {
-				if(daily.getCurrencies().get(i).getName().equals(currency)) {
+				if(daily.getCurrencies().get(i).getName().equals("EUR"+currency)) {
 					variance+=Math.pow(daily.getCurrencies().get(i).getValue()-CurrencyAverage(currency),2);
 					flag = false;
 				}
@@ -204,7 +204,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 			JSONObject dailyCurrency = new JSONObject();
 			dailyCurrency.put("date", daily.toStringDate());
 			for(int j=0;j<daily.getCurrencies().size();j++)
-				if(daily.getCurrencies().get(j).getName().equals(currency)) {
+				if(daily.getCurrencies().get(j).getName().equals("EUR"+currency)) {
 					dailyCurrency.put('"'+currency+'"',daily.getCurrencies().get(j).getValue());
 					flag = false;
 				}
@@ -242,7 +242,7 @@ public class HistoricalData implements CurrencyService,DataAnalysis{
 		Vector<Double> currency= new Vector<Double>();
 		for(int i=0;i<days;i++)
 			for(int j=0;j<historicalData.get(i).getCurrencies().size();j++)
-				if(historicalData.get(i).getCurrencies().get(j).getName().equals(name)) {
+				if(historicalData.get(i).getCurrencies().get(j).getName().equals("EUR"+name)) {
 					currency.add(historicalData.get(i).getCurrencies().get(j).getValue());
 					flag = false;
 				}

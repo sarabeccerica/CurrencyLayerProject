@@ -211,7 +211,7 @@ public class Investment extends Currency{
 	 */
 	public void historicalEarnings(Vector<Double> historicalQuotes) {
 		for(Double quotes : historicalQuotes)
-		historicalEarnings.add(quotes*this.amount);
+			historicalEarnings.add((quotes*this.amount)-this.amount);
 	}
 	/**
 	 * Metodo per il calcolo dei giorni passati dalla data dell'investimento
@@ -220,6 +220,7 @@ public class Investment extends Currency{
 	 */
 	public int DaysNumber() {
 		Calendar today = Calendar.getInstance();
+		today.add(Calendar.MONTH,+1);
 		Calendar difference = Calendar.getInstance();
 		difference.clear();
 		difference.setTimeInMillis(today.getTimeInMillis()-this.investmentDate.getTimeInMillis());
