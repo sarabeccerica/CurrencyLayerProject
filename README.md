@@ -1,4 +1,4 @@
-![CurrencyAnaLayer](https://user-images.githubusercontent.com/91334936/148557370-a8079bf1-5a96-44c7-ae4b-d0f37e24dbbd.jpeg)
+![currencyAnaLayer](https://user-images.githubusercontent.com/91334936/148727928-0c3d3569-cc83-4fc8-8817-2169607a4250.jpeg)
 # CURRENCY ANALAYER 
 Currency Analayer è un'applicazione web con lo scopo di analizzare i dati relativi alle valute restituite dalla chiamata all'API currencylayer.
 Il servizio è costituito dalla possibilità di visualizzare i dati storici delle valute di interesse nell'arco di 5 giorni, le relative statistiche e infine la creazione di un
@@ -66,32 +66,32 @@ ESECUZIONE SU POSTMAN:
 
 1- CONVERSIONE VALUTE 
 
-  ![convert](https://user-images.githubusercontent.com/91334936/148673168-725aa930-ffa4-40de-b40b-458b7a6cb9fa.png)
+  ![convert2](https://user-images.githubusercontent.com/91334936/148727887-9dac53f1-3168-4511-a7ad-24b34b6b577e.png)
 
 2- DATI STORICI DI TUTTE LE VALUTE
 
-  ![quotes](https://user-images.githubusercontent.com/91334936/148672986-1886fe37-e39f-465b-a039-b42eac73442c.png)
+  ![quotes7](https://user-images.githubusercontent.com/91334936/148727883-0e0e2b11-cea2-457e-9a26-7807077a68c9.png)
    
 3- VALUTE IN UN DETERMINATO GIORNO
 
-  ![daily](https://user-images.githubusercontent.com/91334936/148673219-371de111-11c7-4fae-80b7-9a7a984bd7f9.png)
+  ![daily4](https://user-images.githubusercontent.com/91334936/148727891-49896926-cf37-4139-82f0-f3a6a68bbd82.png)
 
    
 4- MEDIA E VARIANZA DI UNA VALUTA
 
-  ![analysis](https://user-images.githubusercontent.com/91334936/148673080-53fb5b85-c543-4000-93da-6d7c8a0d295d.png)
+  ![analysis1](https://user-images.githubusercontent.com/91334936/148727885-75b12a48-4f6d-47b2-8827-d9dc3a73ccef.png)
   
 5- DATI STORICI DI UNA VALUTA
 
-  ![currency4](https://user-images.githubusercontent.com/91334936/148673383-94391784-69e1-467f-800e-771a813ab27c.png)
+  ![currency3](https://user-images.githubusercontent.com/91334936/148727890-6f875178-ecf5-4d6e-a1bc-df9c3104ed25.png)
 
 6- INVESTIMENTO
 
-  ![investment](https://user-images.githubusercontent.com/91334936/148673331-528b6413-d276-4e96-bf45-e8f7f873f212.png)
+  ![investment6](https://user-images.githubusercontent.com/91334936/148727877-f29988c4-5e72-4ce5-a89f-cfab5d3c3c9d.png)
   
 7- GUADAGNI DI UN INVESTIMENTO
 
-  ![earnings](https://user-images.githubusercontent.com/91334936/148673333-98a72330-0d11-4f94-9005-f31b0e849cba.png)
+  ![earnings5](https://user-images.githubusercontent.com/91334936/148727894-887ef726-d193-424d-868f-85a401b8585c.png)
 
 ## Eccezioni :warning:
 Abbiamo creato delle eccezioni specifiche per le nostre esigenze che potete trovare [qui](https://github.com/sarabeccerica/CurrencyLayerProject/tree/master/src/main/java/Exceptions).
