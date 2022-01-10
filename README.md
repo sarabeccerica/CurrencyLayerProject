@@ -127,5 +127,5 @@ Potete trovare la documentazione javaDoc [qui](https://github.com/sarabeccerica/
 
 # Autori :busts_in_silhouette:
 Questo progetto è stato realizzato da:
-* Beccerica Sara:APICall, ReadFile, Contoller, exceptions, ReadMe.
-* Attili Loris:BaseClasses, interfacce, HistoricalData, Test, JavaDoc.
+* Beccerica Sara: APICall, ReadFile, Contoller, exceptions, ReadMe.
+* Attili Loris: BaseClasses, interfacce, HistoricalData, Test, JavaDoc.
